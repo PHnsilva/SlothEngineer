@@ -75,3 +75,15 @@ Deixe a rodada reproduzível: branch/PR, implementado, validado, em revisão, in
 `tools/catalog.json` distingue adaptador implementado, fonte de referência e API futura. Presença no catálogo não habilita rede, credenciais ou execução. A cópia do professor em `tools/plantuml/upstream/` é licenciada e somente referência: não importar, instalar ou executar seu cliente HTTP pelo runtime.
 
 A ferramenta de diagramas usa adaptador local fixo e limitado, compartilhado com a CLI. Não aceita shell, caminho de entrada, executável ou URL livres nem escreve no repositório via MCP. O host precisa ter os pré-requisitos. Nenhuma API remota candidata é habilitada por essa capacidade.
+
+## Retomada solicitada em 01/11/2026
+
+- Usar MCP do GitHub para consultar e atualizar issues, branches e PRs; seguir `docs/AGENT_WORKFLOW.md` e `docs/KANBAN.md`.
+- O usuário autorizou a organização do Kanban e pediu retomada diária às 6h de America/Sao_Paulo a partir de 02/11/2026. O cadastro no aplicativo é separado e precisa ser conferido antes de anunciar rotina ativa.
+- Reutilizar o Project #5 após conferir sua existência/estado; a issue #12 continua aberta até configuração, importação e verificação efetivas.
+- Hoje é organização. Preparar o ambiente local no D: e inventariar antes de instalar modelos/toolchains. A revisão/aceite continua com Pedro no fim de semana, sem auto-merge.
+
+## Prioridade aprovada para as próximas retomadas
+
+- Ler `docs/DAILY_PLAN.md` e a decisão de hosts/clientes antes de selecionar a próxima entrega. Priorizar especializações aplicáveis ao Sofiie/Velumbra e seus contratos/avaliações, respeitando dependências e as alterações do proprietário no Kanban. Não criar servidores MCP nos consumidores.
+- O cronograma no aplicativo é uma configuração separada; registrar seu identificador e conferir o próximo disparo antes de declarar a rotina ativa.
