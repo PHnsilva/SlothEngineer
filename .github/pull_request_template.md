@@ -1,6 +1,8 @@
 ## Problema e comportamento resultante
 
-Closes #
+Issue: #
+
+Use `Closes #N` apenas para a entrega final quando os critérios e o procedimento local permitirem. PR parcial apenas referencia. Declare bases e ordem de integração de PRs dependentes.
 
 ## Validação e evidências
 

@@ -1,1 +1,3 @@
 * text=auto eol=lf
+# Preserve the licensed reference snapshot byte-for-byte, including original whitespace.
+tools/plantuml/upstream/** -text -whitespace

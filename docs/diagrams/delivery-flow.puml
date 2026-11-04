@@ -1,0 +1,24 @@
+@startuml
+title Da necessidade ao aceite
+skinparam monochrome true
+start
+:Registrar problema e resultado esperado;
+:Definir escopo e critérios de aceite;
+if (Há decisão ou dependência bloqueadora?) then (sim)
+  :Identificar ou criar issue do pré-requisito;
+  :Registrar motivo e condição de desbloqueio;
+  :Verificar a entrega do pré-requisito;
+else (não)
+endif
+:Selecionar issue pronta e branch própria;
+:Implementar e reunir evidências;
+:Abrir PR e revisar o estado atual;
+if (Critérios cumpridos e integração autorizada?) then (sim)
+  :Integrar conforme a política local;
+  :Validar no ambiente exigido;
+  :Registrar aceite e concluir a issue;
+else (não)
+  :Registrar pendências para a próxima execução;
+endif
+stop
+@enduml

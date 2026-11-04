@@ -20,7 +20,9 @@
     "plan": "tsx src/cli.ts plan",
     "consult": "tsx src/cli.ts consult",
     "peer": "tsx src/cli.ts peer",
-    "mcp": "node dist/mcp/stdio.js"
+    "mcp": "node dist/mcp/stdio.js",
+    "diagrams:setup": "node scripts/setup-plantuml.mjs",
+    "diagram": "tsx src/modeling/cli.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/client": "2.4.0",

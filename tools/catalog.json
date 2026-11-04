@@ -1,0 +1,113 @@
+[
+  {
+    "id": "plantuml-local",
+    "title": "Renderizador local de diagramas",
+    "kind": "local-adapter",
+    "status": "implemented",
+    "summary": "Renderiza fonte UML restrita em PNG por MCP ou SVG/PNG pela CLI. Requer Java e JAR local verificado; não chama servidor público.",
+    "sources": ["https://plantuml.com/command-line", "https://plantuml.com/security"],
+    "documentation": "tools/plantuml/README.md",
+    "mcpTool": "render_diagram",
+    "executionPolicy": "fixed-local-adapter",
+    "credentialRequirement": "Nenhuma credencial.",
+    "costPolicy": "Sem serviço contratado; usa recursos da máquina."
+  },
+  {
+    "id": "aramuni-plantuml-example",
+    "title": "Projeto PlantUML API do professor",
+    "kind": "upstream-reference",
+    "status": "reference-only",
+    "summary": "Cópia selecionada do código e exemplos, com licença, commit e hashes. Cliente HTTP original não é executado pelo runtime.",
+    "sources": [
+      "https://github.com/joaopauloaramuni/projeto-de-software/tree/6e6140a2a2562e31a3eb035f4940f7b888909145/PROJETOS/Python/Projeto%20PlantUML%20API"
+    ],
+    "documentation": "tools/plantuml/reference-manifest.json",
+    "executionPolicy": "none",
+    "credentialRequirement": "Não aplicável: somente referência.",
+    "costPolicy": "O uso operacional do cliente original não foi adotado."
+  },
+  {
+    "id": "github-api",
+    "title": "GitHub REST e GraphQL",
+    "kind": "external-api",
+    "status": "planned",
+    "summary": "Candidata para metadados de repositórios, issues e PRs. Este catálogo não habilita cliente remoto nem credenciais do runtime.",
+    "sources": ["https://docs.github.com/en/rest", "https://docs.github.com/en/graphql"],
+    "documentation": "docs/api-catalog.md",
+    "executionPolicy": "none",
+    "credentialRequirement": "Conferir escopos mínimos por operação antes de integrar.",
+    "costPolicy": "Confirmar limites e produto; nenhuma contratação automática."
+  },
+  {
+    "id": "ibge",
+    "title": "Dados públicos do IBGE",
+    "kind": "external-api",
+    "status": "planned",
+    "summary": "Localidades e indicadores com versão e período. Nenhum endpoint é chamado pelo catálogo.",
+    "sources": ["https://servicodados.ibge.gov.br/api/docs/"],
+    "documentation": "docs/api-catalog.md",
+    "executionPolicy": "none",
+    "credentialRequirement": "Confirmar por endpoint e uso.",
+    "costPolicy": "Conferir condições atuais e limites antes de habilitar."
+  },
+  {
+    "id": "viacep",
+    "title": "Consulta de CEP",
+    "kind": "external-api",
+    "status": "planned",
+    "summary": "Consulta de endereço por CEP, candidata apenas quando houver necessidade do consumidor.",
+    "sources": ["https://viacep.com.br/"],
+    "documentation": "docs/api-catalog.md",
+    "executionPolicy": "none",
+    "credentialRequirement": "Conferir condições do provedor.",
+    "costPolicy": "Serviço anunciado como gratuito; confirmar política e uso pretendido."
+  },
+  {
+    "id": "brasilapi",
+    "title": "BrasilAPI",
+    "kind": "external-api",
+    "status": "planned",
+    "summary": "Endpoints de dados públicos; validar contrato, disponibilidade e privacidade de cada uso.",
+    "sources": ["https://brasilapi.com.br/docs"],
+    "documentation": "docs/api-catalog.md",
+    "executionPolicy": "none",
+    "credentialRequirement": "Confirmar por endpoint.",
+    "costPolicy": "Nenhuma assinatura ou fallback habilitados."
+  },
+  {
+    "id": "nasa",
+    "title": "Dados científicos NASA",
+    "kind": "external-api",
+    "status": "planned",
+    "summary": "Referência para possíveis consumidores educacionais; sem cadastro, chave ou chamadas no runtime.",
+    "sources": ["https://api.nasa.gov/"],
+    "documentation": "docs/api-catalog.md",
+    "executionPolicy": "none",
+    "credentialRequirement": "Portal oferece chave; avaliar endpoint e quota.",
+    "costPolicy": "Confirmar limites e direitos do conteúdo antes de adoção."
+  },
+  {
+    "id": "tmdb",
+    "title": "Metadados audiovisuais",
+    "kind": "external-api",
+    "status": "planned",
+    "summary": "Possível integração com credencial, atribuição e condições comerciais próprias.",
+    "sources": ["https://developer.themoviedb.org/docs/faq"],
+    "documentation": "docs/api-catalog.md",
+    "executionPolicy": "none",
+    "credentialRequirement": "Chave própria somente após autorização.",
+    "costPolicy": "Não presumir gratuidade para uso comercial."
+  },
+  {
+    "id": "climatempo",
+    "title": "Dados meteorológicos",
+    "kind": "external-api",
+    "status": "planned",
+    "summary": "Exemplo didático identificado, sem homologação de plano ou operação pelo agente.",
+    "sources": ["https://advisor.climatempo.com.br/"],
+    "documentation": "docs/api-catalog.md",
+    "executionPolicy": "none",
+    "credentialRequirement": "Exemplo usa token; não solicitado nem armazenado.",
+    "costPolicy": "Custo não homologado, integração não habilitada."
+  }
+]

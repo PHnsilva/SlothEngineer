@@ -1,0 +1,23 @@
+@startuml
+title Consulta de especialista sem execução implícita
+skinparam monochrome true
+actor Operador
+participant "Host MCP" as Host
+participant "Sofiie Agents" as Runtime
+participant "Provedor configurado" as Provider
+Operador -> Host : Solicitar análise
+Host -> Runtime : consult_specialist(id, objective)
+Runtime -> Runtime : Validar schema e carregar perfil/referências
+alt Modo handoff
+  Runtime --> Host : Instruções, tarefa e inferenceExecuted=false
+else Inferência local habilitada
+  Runtime -> Provider : Gerar proposta textual
+  Provider --> Runtime : Texto ou erro explícito
+  Runtime --> Host : Proposta não confiável ou falha
+end
+Host --> Operador : Resultado e limitações
+note over Operador,Runtime
+Implementação e aceite exigem trabalho e evidências próprios.
+Nenhuma resposta concede permissão ou executa ações do projeto.
+end note
+@enduml

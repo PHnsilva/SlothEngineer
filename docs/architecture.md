@@ -9,7 +9,7 @@ flowchart TD
     Human[Pedro ou host MCP] --> Server[Servidor MCP stdio]
     CLI[CLI local] --> Planner[Planejador determinístico]
     Server --> Planner
-    Server --> Profiles[24 perfis e critérios]
+    Server --> Profiles[25 perfis e critérios]
     Server --> Knowledge[Busca em conhecimento versionado]
     Server --> Provider[Consulta de especialista]
     Provider --> Handoff[Handoff sem modelo]
@@ -24,18 +24,18 @@ O caminho evidências → PR → conhecimento é um processo de contribuição m
 
 ## Ferramentas e tecnologias
 
-| Componente             | Escolha                                           | Motivo e limite                                                                   |
-| ---------------------- | ------------------------------------------------- | --------------------------------------------------------------------------------- |
-| Linguagem/runtime      | TypeScript estrito, Node.js 24                    | Contratos claros, afinidade com o produto e execução no Windows/Linux             |
-| Protocolo              | SDK oficial MCP TypeScript v2, stdio              | Evita implementar JSON-RPC manualmente e não exige servidor hospedado             |
-| Validação              | Zod                                               | Rejeita dados inválidos e campos desconhecidos nas ferramentas                    |
-| Testes                 | node:test, tsx                                    | Poucas dependências e testes de processo real                                     |
-| Modelo                 | Ollama local opcional                             | Sem API paga; disponibilidade e desempenho dependem da máquina                    |
-| Conhecimento inicial   | JSON versionado com fontes e status               | Revisável por Git, sem banco vetorial obrigatório                                 |
-| Persistência futura    | SQLite                                            | Adicionar quando houver runs, avaliações e retenção reais; ainda não implementado |
-| Avaliação de UI futura | Playwright e axe-core                             | Automação não substitui teclado e leitor de tela                                  |
-| CI                     | GitHub Actions, runner Ubuntu padrão público      | Sem inferência, agendamento, artifacts, caches ou credenciais de serviços         |
-| Python                 | Somente para experimentos futuros de avaliação/ML | Não duplicar runtime agora sem necessidade comprovada                             |
+| Componente             | Escolha                                           | Motivo e limite                                                           |
+| ---------------------- | ------------------------------------------------- | ------------------------------------------------------------------------- |
+| Linguagem/runtime      | TypeScript estrito, Node.js 24                    | Contratos claros, afinidade com o produto e execução no Windows/Linux     |
+| Protocolo              | SDK oficial MCP TypeScript v2, stdio              | Evita implementar JSON-RPC manualmente e não exige servidor hospedado     |
+| Validação              | Zod                                               | Rejeita dados inválidos e campos desconhecidos nas ferramentas            |
+| Testes                 | node:test, tsx                                    | Poucas dependências e testes de processo real                             |
+| Modelo                 | Ollama local opcional                             | Sem API paga; disponibilidade e desempenho dependem da máquina            |
+| Conhecimento inicial   | JSON versionado com fontes e status               | Revisável por Git, sem banco vetorial obrigatório                         |
+| Persistência futura    | Alternativa local a decidir                       | Escolher após requisitos e evidência de uso; ainda não implementada       |
+| Avaliação de UI futura | Playwright e axe-core                             | Automação não substitui teclado e leitor de tela                          |
+| CI                     | GitHub Actions, runner Ubuntu padrão público      | Sem inferência, agendamento, artifacts, caches ou credenciais de serviços |
+| Python                 | Somente para experimentos futuros de avaliação/ML | Não duplicar runtime agora sem necessidade comprovada                     |
 
 Não há framework multiagente adicional. As responsabilidades atuais cabem em módulos pequenos. LangGraph, filas, containers, embeddings e fine-tuning precisam demonstrar benefício antes de entrar no projeto.
 
@@ -46,6 +46,10 @@ Não há framework multiagente adicional. As responsabilidades atuais cabem em m
 - `searchKnowledge`: texto de consulta → até cinco entradas com fontes. Não recebe caminho de arquivo e não grava conhecimento.
 - `callPeerTool`: configuração local validada e ferramenta permitida → resultado marcado `trusted: false`. Sem escolha de executável por entrada MCP.
 - A CLI pode iniciar um peer aprovado na configuração local. O servidor MCP não oferece ferramenta de shell, escrita, instalação ou chamada livre de peers.
+- `list_integrations`: consulta catálogo validado, sem habilitar rede/credenciais ou executar seus registros.
+- `render_diagram`: fonte validada → PNG do renderizador local fixo, sem leitura de caminho recebido nem escrita no repositório. Pré-requisitos locais, timeout e limites são obrigatórios.
+
+O diretório `tools/` reúne catálogo, contratos e referência selecionada do professor. O adaptador executável permanece no monólito e é compartilhado pela CLI e MCP. Não existe serviço separado só para renderizar diagramas. APIs remotas do catálogo não estão integradas; a referência Python original não é carregada.
 
 ## Restrições reais
 
