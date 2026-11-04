@@ -35,7 +35,7 @@ export function planTask(input: unknown) {
     ...new Set(task.specialists.length ? task.specialists : matches.length ? matches : ['product']),
   ];
   const reviewers = new Set(['qa']);
-  if (['frontend', 'ux', 'visual-design', 'mobile', 'voice'].some((id) => workers.includes(id)))
+  if (['frontend', 'ux', 'visual-design', 'mobile', 'desktop'].some((id) => workers.includes(id)))
     reviewers.add('accessibility');
   if (
     ['backend', 'data', 'desktop', 'interoperability', 'ai', 'devops'].some((id) =>

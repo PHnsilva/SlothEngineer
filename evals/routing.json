@@ -7,19 +7,19 @@
   },
   {
     "id": "api",
-    "objective": "Criar endpoint backend com autorização",
+    "objective": "Criar serviço com regra de negócio e autorização sem depender de transporte HTTP",
     "expected": "backend",
     "reviewer": "security"
   },
   {
-    "id": "voice",
-    "objective": "Integrar voz com STT e TTS",
-    "expected": "voice",
+    "id": "mobile-native",
+    "objective": "Projetar aplicativo móvel nativo com funcionamento offline",
+    "expected": "mobile",
     "reviewer": "accessibility"
   },
   {
     "id": "simulation",
-    "objective": "Corrigir física e sincronização na engine",
+    "objective": "Implementar simulação, física e renderização em um jogo",
     "expected": "game-engine",
     "reviewer": "qa"
   },
@@ -48,8 +48,8 @@
     "reviewer": "qa"
   },
   {
-    "id": "mcp",
-    "objective": "Definir MCP A2A e protocolo de agentes",
+    "id": "integration",
+    "objective": "Definir contrato de integração entre sistemas por eventos, com controle de versão e falhas",
     "expected": "interoperability",
     "reviewer": "security"
   },
@@ -66,9 +66,15 @@
     "reviewer": "qa"
   },
   {
-    "id": "modeling",
-    "objective": "Criar diagramas de sequência e modelagem",
-    "expected": "modeling",
+    "id": "desktop",
+    "objective": "Desenvolver aplicação desktop com integração segura ao sistema operacional",
+    "expected": "desktop",
+    "reviewer": "accessibility"
+  },
+  {
+    "id": "architecture-distributed",
+    "objective": "Revisar arquitetura de sistemas distribuídos, contratos e migração",
+    "expected": "architecture",
     "reviewer": "qa"
   },
   {
