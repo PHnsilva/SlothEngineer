@@ -29,12 +29,14 @@ Saída: relatório reproduzível com modelo, licença, versão, máquina, limita
 
 Estimativa inicial: 2 ciclos. Depende de M1 para avaliar modelos, mas as rubricas podem ser preparadas antes.
 
-1. Criar casos sanitizados de backend, interface, acessibilidade, segurança, voz, MCP e jogos, incluindo falhas e tarefas adversariais.
-2. Separar desenvolvimento, regressão pública e reserva privada. Não publicar dados reais nem expor gabaritos do conjunto de reserva ao agente otimizado.
+1. Definir uma amostra inicial de tarefas sintéticas com critério observável, falhas e cobertura justificada pelo uso; ampliar conforme evidência de recorrência, sem presumir que todo perfil precisa de um caso próprio.
+2. Separar desenvolvimento, regressão pública e reserva privada. Não publicar dados reais nem expor casos de reserva ao agente otimizado.
 3. Definir rubricas: atendimento do requisito, correção verificável, achados válidos, acessibilidade, segurança e ausência de alegações falsas.
 4. Executar baseline com versão fixada; registrar resultado por caso, intervenção humana, tempo e hardware.
 5. Alterar uma variável por proposta e comparar com baseline. Exigir ausência de regressão crítica e melhora justificada no conjunto independente, com tamanho da amostra explícito.
 6. Registrar lição candidata em PR, acompanhada da evidência. Aprová-la antes de incluí-la em conhecimento recuperável.
+
+O protocolo e os dados públicos iniciais estão em [`evals/generation`](../evals/generation/README.md). Essa validação estrutural não é execução de modelo. A reserva continua pendente; a baseline só começa depois de o custodiante preparar casos privados e código, instruções e critérios estarem congelados.
 
 Saída: baseline real, relatório comparativo e uma melhoria revisada. Nenhuma porcentagem simulada é apresentada como ganho observado. Não criar execução diária agendada sem pedido explícito.
 

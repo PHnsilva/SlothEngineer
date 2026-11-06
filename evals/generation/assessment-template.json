@@ -1,0 +1,17 @@
+{
+  "recordType": "human-assessment",
+  "caseId": "",
+  "caseRevision": "",
+  "codeRevision": "",
+  "instructionRevision": "",
+  "providerAndModel": "",
+  "generationConfiguration": "",
+  "environment": "",
+  "executedAt": "",
+  "evaluatorReference": "",
+  "responseReference": "",
+  "criteria": [],
+  "failureConditionTriggered": null,
+  "decision": "not-recorded",
+  "limitations": []
+}
