@@ -37,3 +37,9 @@ Mantenha a entrega em revisão/validação enquanto faltar aceite. CI verde, mer
 Consulte `tools/` antes de criar cliente duplicado. APIs candidatas continuam referências até haver contrato, licença, custo verificado, política de dados/credenciais, limites, falhas e validação. O código do professor está separado com origem e hashes e não é executado pelo agente.
 
 A CLI e o MCP compartilham o adaptador local de diagramas. Não criar outro serviço só para expor uma função existente. Separar pacote/repositório/serviço deve resolver necessidade real de consumidores, fronteira de confiança, implantação ou manutenção, com decisão registrada.
+
+<!-- BEGIN GOVERNANCE 2026-11-06 -->
+## Fluxo obrigatório e revisão do proprietário
+
+Leia [a política de implementação e contribuição](docs/CONTRIBUTION_POLICY.md). Toda alteração após o bootstrap exige issue definida, branch e PR. As issues têm tamanho PP/P/M/L (1/2/4/8), justificativa, sprint, dependências e critérios de aceite. Somente Pedro (PHnsilva) revisa/aprova PRs e aceita issues; agentes não aprovam, não fazem merge/auto-merge nem publicam por conta própria. Instruções atuais do proprietário sobre pausas, prioridade e data de início prevalecem sobre referências históricas.
+<!-- END GOVERNANCE 2026-11-06 -->
