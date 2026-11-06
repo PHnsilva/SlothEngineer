@@ -58,6 +58,7 @@ A ferramenta de diagramas usa adaptador local fixo e limitado, compartilhado com
 - O cronograma no aplicativo é uma configuração separada; registrar seu identificador e conferir o próximo disparo antes de declarar a rotina ativa.
 
 <!-- BEGIN GOVERNANCE 2026-11-06 -->
+
 ## Regras obrigatórias de implementação e contribuição
 
 Leia `docs/CONTRIBUTION_POLICY.md` antes de criar issues ou implementar. A instrução atual do proprietário exige issue definida → branch → alteração/validação → PR. Somente Pedro (PHnsilva) revisa e aprova PRs e dá aceite das issues; agentes não aprovam, não fazem merge/auto-merge nem deploy por conta própria. Preserve trabalho e PRs existentes.

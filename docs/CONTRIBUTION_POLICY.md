@@ -22,11 +22,11 @@ Se B precisa de A, registrar **B bloqueada por A**, explicando o artefato consum
 ## Tamanho das issues e capacidade diária
 
 | Tamanho | Unidades relativas |
-| --- | ---: |
-| PP | 1 |
-| P | 2 |
-| M | 4 |
-| L | 8 |
+| ------- | -----------------: |
+| PP      |                  1 |
+| P       |                  2 |
+| M       |                  4 |
+| L       |                  8 |
 
 Cada tamanho dobra o anterior. Estimar conjuntamente volume de implementação, dificuldade, integrações, incerteza e validação; registrar uma justificativa. Esses valores não são horas nem garantia de tempo. Dividir uma entrega maior que L em partes com aceite próprio. Revisar estimativa com motivo e histórico; nunca inflar tamanhos nem fragmentar artificialmente para cumprir meta.
 
