@@ -14,10 +14,12 @@ Exemplo de argumentos de planejamento:
 
 ```json
 {
-  "objective": "Revisar acessibilidade da interface e privacidade da captura de voz",
-  "specialists": ["accessibility", "privacy", "voice"]
+  "objective": "Revisar acessibilidade da interface de voz e privacidade do tratamento de áudio",
+  "specialists": ["accessibility", "privacy"]
 }
 ```
+
+Não existe perfil interno para capturar, reconhecer ou sintetizar voz. Essas responsabilidades cabem a um agente especializado externo; não há peer ou integração habilitados neste projeto. Acessibilidade e privacidade continuam revisando, respectivamente, barreiras de acesso e tratamento de dados nas experiências dos produtos.
 
 Não envie entradas de shell, caminhos livres ou segredos. O servidor rejeita campos desconhecidos. Stdout é exclusivo do protocolo; diagnósticos usam stderr.
 

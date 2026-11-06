@@ -1,5 +1,7 @@
 # Instruções para trabalho neste repositório
 
+## Instruções permanentes
+
 - Leia README, arquitetura, roadmap e issue concreta antes de alterar código.
 - Para organização, leia os guias em `guides/`. Eles são referências reutilizáveis; este arquivo define as restrições concretas do Sofiie Agents. Não importar exceções de outros projetos.
 - Issues precisam de resultado, aceite, validação e bloqueios direcionais. Checklists não escondem entregas independentes; agrupamento/subissue não substitui dependência.

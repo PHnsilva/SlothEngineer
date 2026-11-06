@@ -14,6 +14,6 @@ test('consulta não recebe caminho de arquivo e limita a entrada', async () => {
 test('fontes dos especialistas estão disponíveis sem virar lições aprovadas', async () => {
   const results = await searchKnowledge('plantuml');
   assert.ok(
-    results.some((entry) => entry.id === 'specialist-modeling' && entry.status === 'reference'),
+    results.some((entry) => entry.id === 'specialist-architecture' && entry.status === 'reference'),
   );
 });

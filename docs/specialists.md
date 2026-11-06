@@ -26,11 +26,11 @@ Sem essas informações, o especialista deve investigar o que estiver autorizado
 
 ### Produto e requisitos (`product`)
 
-Investiga necessidade, usuários, objetivo, regras, contraescopo e atributos de qualidade. Pode refinar histórias, casos de uso, critérios, riscos e prioridades conforme o processo adotado. Entrega um recorte executável, com hipóteses e decisões separadas de fatos. A revisão verifica rastreabilidade, testabilidade e dependências; não aceita uma lista de funcionalidades sem necessidade demonstrada.
+Investiga necessidade, usuários, objetivo, regras, contraescopo e atributos de qualidade. Pode refinar histórias, casos de uso, critérios, planos de trabalho, riscos, dependências e prioridades conforme o processo adotado. Entrega um recorte executável, com hipóteses e decisões separadas de fatos. A revisão verifica rastreabilidade, testabilidade e dependências; não aceita uma lista de funcionalidades sem necessidade demonstrada.
 
 ### Arquitetura (`architecture`)
 
-Analisa fronteiras, responsabilidades, contratos, qualidades, restrições e consequências de mudança. Compara alternativas somente quando existe uma decisão real. Considera modularidade, acoplamento, coesão, integração, implantação e operação, sem presumir estilo ou distribuição. Entrega raciocínio, riscos, contratos e representação adequada; a revisão confronta a proposta com requisitos e código, em vez de aprovar nomes de padrões.
+Analisa fronteiras, responsabilidades, contratos, qualidades, restrições e consequências de mudança. Compara alternativas somente quando existe uma decisão real. Considera modularidade, acoplamento, coesão, integração, implantação, operação e sistemas distribuídos quando necessários, sem presumir estilo ou distribuição. Participa da manutenção, refatoração, evolução e migração arquitetural. Entrega raciocínio, riscos, contratos e representação adequada; a revisão confronta a proposta com requisitos e código, em vez de aprovar nomes de padrões.
 
 ### Pesquisa e usabilidade (`ux`)
 
@@ -46,9 +46,9 @@ Identifica barreiras de percepção, operação, compreensão e compatibilidade.
 
 ## Construção e integração de sistemas
 
-### Serviços e APIs (`backend`)
+### Backend e serviços (`backend`)
 
-Preserva regras, autorização, contratos, transações e invariantes. Examina validação, falhas, repetição, consistência, concorrência e configuração conforme o risco. Entrega comportamento de serviço verificável e mudanças de contrato explícitas. A revisão inclui entradas válidas/negativas, estado persistido e efeito real na integração; não presume uma linguagem, framework ou protocolo único.
+Preserva regras de negócio, autorização, contratos, transações e invariantes. Examina validação, falhas, repetição, consistência, concorrência e configuração conforme o risco. Entrega comportamento de serviço verificável e mudanças de contrato explícitas. A revisão inclui entradas válidas/negativas, estado persistido e efeito real na integração. HTTP e APIs são opções, não limites para esta responsabilidade.
 
 ### Interfaces web (`frontend`)
 
@@ -58,25 +58,31 @@ Implementa jornadas e estados de carregamento, vazio, erro, sucesso e interaçã
 
 Analisa informação, integridade, consultas, acesso, mudanças de schema, retenção e recuperação. Compara formas de armazenamento pela necessidade real, sem impor banco relacional, documental, vetorial ou outra tecnologia previamente. Entrega modelo/contrato e estratégia de mudança; a revisão considera dados existentes, concorrência, migração, exclusão e restauração quando pertinentes.
 
-### Protocolos e interoperabilidade (`interoperability`)
+### Integração e interoperabilidade (`interoperability`)
 
-Define como componentes, ferramentas e agentes trocam contexto, tarefas e resultados. Verifica schema, versão, identidade, autorização, estados, timeout, cancelamento e repetição conforme o contrato. Entrega integração com fronteiras de confiança explícitas. A revisão exige comunicação entre as partes reais quando isso fizer parte do aceite; um exemplo de payload não comprova interoperabilidade.
+Define como sistemas trocam dados, mensagens, eventos, tarefas e resultados por contratos e protocolos compatíveis com o contexto. Considera versionamento, identidade, autorização, estados, timeout, cancelamento, repetição, falhas e recuperação. Entrega integração com fronteiras de confiança explícitas e considera sistemas distribuídos quando a necessidade existir. A revisão exige comunicação entre as partes reais quando isso fizer parte do aceite; um exemplo de payload não comprova interoperabilidade. MCP e outros protocolos podem ser aplicáveis, mas não são exigidos por padrão.
 
-### Integração local (`desktop`)
+### Aplicações desktop (`desktop`)
 
-Cuida de aplicação, dispositivo e sistema operacional alvo, com ações estruturadas e permissões pertinentes. Entrega um fluxo local delimitado, com caminhos, entradas e consequências definidos. A validação exige ambiente alvo e distingue recurso implementado de aplicativo/serviço apenas presumido instalado. Não oferece controle irrestrito do computador por conveniência.
+Desenvolve aplicações desktop e integrações com os sistemas operacionais conforme produto, ambiente e permissões pertinentes. Entrega fluxos delimitados com entradas e consequências definidos. A validação exige o ambiente alvo e distingue recurso implementado de aplicativo/serviço apenas presumido instalado. A escolha de tecnologia depende do projeto; não oferece controle irrestrito do computador por conveniência.
 
-### Experiências móveis (`mobile`)
+### Desenvolvimento móvel (`mobile`)
 
-Examina toque, telas pequenas, conectividade, energia, permissões e ciclo de vida. A escolha entre web, nativo ou outra abordagem depende do produto. Entrega jornada compatível com as restrições reais. A revisão cobre teclado virtual, estados de rede e dispositivo/navegador exigidos, sem declarar suporte baseado apenas em emulação.
+Examina experiências móveis nativas, multiplataforma e web, conforme produto, pessoas e ambiente. Considera toque, telas pequenas, conectividade, energia, permissões e ciclo de vida. Entrega comportamento compatível com restrições reais. A revisão cobre teclado virtual, estados de rede e dispositivo/navegador exigidos, sem impor PWA nem declarar suporte baseado apenas em emulação.
 
-### Voz e multimodalidade (`voice`)
+### Fronteira de voz e multimodalidade
 
-Trata captura, reconhecimento, síntese, estados conversacionais e alternativas de interação. Entrega comportamento com falhas, latência, consentimento e privacidade explícitos. A revisão considera idioma, ruído, interrupção, permissão e alternativa textual. Não confunde áudio gerado com fluxo real de voz nem inicia captura pessoal sem autorização.
+Voz, áudio, STT/TTS e interação falada são responsabilidade de um agente especializado externo, cuja integração futura poderá usar MCP. O catálogo interno não oferece perfil de voz e não há conexão externa habilitada. Esta fronteira não retira do perfil de acessibilidade a análise de barreiras em experiências de áudio, nem do perfil de privacidade a análise de coleta, consentimento, acesso e retenção. Requisitos de produto que envolvam voz podem ser descritos sem afirmar que o especialista externo já está disponível.
 
-### Implementação de jogos e simulação (`game-engine`)
+### Impactos em consumidores e avaliações
 
-Trabalha execução interativa, tempo, física, estado, sincronização, renderização e autoridade conforme o sistema existente. Entrega uma mecânica ou contrato testável no ambiente escolhido. A revisão verifica comportamento, rede quando houver, desempenho e restrições do editor/runtime. Nenhuma plataforma, engine ou linguagem é padrão obrigatório do perfil.
+- Sofiie #15: uma intenção recebida em texto ou transcrição revisada pode ser contexto do contrato. Captura, reconhecimento e síntese de voz não são responsabilidade do catálogo interno; confirmação e política de ações continuam no produto.
+- Velumbra #16: o contrato de interpretação por pergunta, tradição e tiragem não muda. Não há cliente ou perfil de voz do Velumbra implementado aqui.
+- Sofiie #17: cenários podem usar entradas textuais ou transcrições sintéticas/sanitizadas para avaliar o contrato. A avaliação desse projeto não mede qualidade de áudio, STT ou TTS; isso exige o agente externo e integração futura autorizada.
+
+### Engenharia de jogos (`game-engine`)
+
+Desenvolve sistemas de jogos, execução, simulação, física, renderização e rede conforme necessidades e ambiente do projeto. Entrega uma mecânica ou contrato testável. A revisão verifica comportamento, sincronização, desempenho e restrições do ambiente de execução. Nenhuma plataforma, engine, motor ou linguagem é padrão obrigatório. Distingue-se de design de jogos, que formula e avalia regras, objetivos e experiência.
 
 ### Design de jogos (`game-design`)
 
@@ -86,7 +92,7 @@ Analisa mecânicas, regras, objetivos, progressão, feedback e experiência pret
 
 ### Qualidade e testes (`qa`)
 
-Relaciona risco e critérios de aceite a verificações úteis. Entrega cenários reproduzíveis, dados adequados, testes e relato de limitações. Revisa regressões, negativas, jornada e integração pertinentes. Não escreve teste que apenas repete a implementação nem declara sucesso por existir um arquivo de teste ou por outro ambiente ter passado.
+Relaciona risco e critérios de aceite a verificações úteis durante construção, manutenção, refatoração, evolução e migração de software. Entrega cenários reproduzíveis, dados adequados, testes e relato de limitações. Revisa regressões, negativas, jornada e integração pertinentes. Não escreve teste que apenas repete a implementação nem declara sucesso por existir um arquivo de teste ou por outro ambiente ter passado.
 
 ### Segurança (`security`)
 
@@ -98,7 +104,7 @@ Examina necessidade de coleta, finalidade, acesso, retenção, exclusão e divul
 
 ### Construção e entrega (`devops`)
 
-Prepara execução reproduzível, dependências, configuração, pipeline e implantação quando autorizada. Entrega procedimento verificável e limites de acesso/custo. A revisão inclui ambiente, falha, recuperação e configuração sem segredos. Pipeline verde e serviço provisionado não comprovam recebimento pelo consumidor nem aceite em produção.
+Cuida de versionamento, dependências, configuração, infraestrutura, pipelines, releases e rollback, dentro das permissões e do orçamento. Entrega procedimento verificável e limites de acesso/custo. A revisão inclui ambiente, falha e recuperação sem segredos. Pipeline verde e serviço provisionado não comprovam recebimento pelo consumidor nem aceite em produção.
 
 ### Confiabilidade (`sre`)
 
@@ -112,7 +118,7 @@ Parte de carga, ambiente e objetivo mensurável. Investiga latência, vazão e c
 
 ### Engenharia de IA (`ai`)
 
-Integra contexto, modelos, instruções e formatos de saída compatíveis com a tarefa. Examina custo, licença, recursos, privacidade e comportamento de falha. Entrega proposta delimitada e fronteira entre geração e ação. A revisão não confunde fluência com correção nem assinatura de assistente com acesso gratuito a API.
+Desenvolve, integra, avalia e opera soluções de inteligência artificial, incluindo modelos, dados, instruções e formatos de saída compatíveis com a tarefa. Examina custo, licença, recursos, privacidade e comportamento de falha. Entrega proposta delimitada e fronteira entre geração e ação. A revisão não confunde fluência com correção nem assinatura de assistente com acesso gratuito a API; as políticas operacionais do repositório continuam prevalecendo.
 
 ### Avaliações (`evaluations`)
 
@@ -124,11 +130,7 @@ Cuida de origem, contexto, validade, recuperação, correção e promoção de c
 
 ### Documentação e localização (`documentation`)
 
-Organiza informação conforme público, tarefa e idioma. Entrega guias, contratos e exemplos coerentes com o estado implementado. A revisão testa links, exemplos, termos, clareza e atualização. Não introduz regra de outro projeto como universal nem transforma planejamento em funcionalidade disponível.
-
-### Modelagem e diagramas (`modeling`)
-
-Escolhe pergunta, público, abstração e notação para representar estrutura, comportamento, dados ou dependências. Entrega fonte editável, imagem quando útil, legenda e limitações. A revisão confronta relações, direção, cardinalidade e estados com a fonte real e inspeciona o resultado renderizado. A ferramenta de desenho não garante correção semântica ou perfeição visual.
+Organiza requisitos, decisões arquiteturais, APIs e contratos, instalação, operação, manutenção e orientações de usuário conforme público, tarefa e idiomas necessários. Mantém rastreabilidade e consistência com código e comportamento. A revisão testa links, exemplos, termos, clareza e atualização. Não limita localização a português e inglês, não introduz regra de outro projeto como universal nem transforma planejamento em funcionalidade disponível.
 
 ## Contrato de saída e revisão cruzada
 
@@ -144,4 +146,4 @@ O [catálogo de ferramentas](../tools/README.md) distingue adaptador disponível
 
 ## Limites da implementação atual
 
-O runtime mantém um catálogo inicial de 25 perfis e usa seleção explícita ou heurística de palavras-chave, com até três perfis de trabalho por plano. Isso é um limite de implementação, não recomendação universal de tamanho de equipe. Os perfis não são processos autônomos nem têm memória isolada. Evolução de instruções e documentos ainda exige avaliação real.
+O runtime mantém um catálogo de 23 perfis e usa seleção explícita ou heurística de palavras-chave, com até três perfis de trabalho por plano. Isso é um limite de implementação, não recomendação universal de tamanho de equipe. Os perfis não são processos autônomos nem têm memória isolada. Renderização de diagramas continua como ferramenta disponível a tarefas de arquitetura e documentação; não é um perfil adicional. A branch aberta do PR #11 introduziu `modeling` como perfil adicional à contagem de `main`; para respeitar o escopo de 23 perfis da issue #20, esta alteração não o conserva como perfil, mas mantém a ferramenta e a documentação de diagramas. Evolução de instruções e documentos ainda exige avaliação real.

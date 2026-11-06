@@ -1,6 +1,6 @@
 # Modelagem e diagramas
 
-O especialista `modeling` ajuda a escolher pergunta, nível de abstração, notação e evidências. A ferramenta de renderização verifica sintaxe e produz imagens, mas não comprova fidelidade ao domínio nem garante um diagrama perfeito.
+Tarefas de representação de estrutura, comportamento e decisões podem ser orientadas pelos perfis de arquitetura e documentação, conforme o objetivo. Esta ferramenta de renderização verifica sintaxe e produz imagens, mas não comprova fidelidade ao domínio nem garante um diagrama perfeito; o catálogo não mantém um perfil separado de modelagem.
 
 ## Referência examinada
 

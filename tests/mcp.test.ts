@@ -68,10 +68,14 @@ test(
       if (content?.type === 'text') {
         const profiles = JSON.parse(content.text);
         assert.equal(profiles.length, specialists.length);
+        assert.equal(profiles.length, 23);
+        assert.ok(
+          profiles.every((profile: { id: string }) => !['voice', 'modeling'].includes(profile.id)),
+        );
         assert.ok(
           profiles.some(
             (profile: { id: string; references: string[] }) =>
-              profile.id === 'modeling' && profile.references.length > 0,
+              profile.id === 'architecture' && profile.references.length > 0,
           ),
         );
       }
