@@ -1,3 +1,5 @@
+> Atualização de planejamento — 06/11/2026: o ciclo, requisitos e dependências vigentes estão em [REQUIREMENTS.md](REQUIREMENTS.md), [DELIVERY_PLAN.md](DELIVERY_PLAN.md) e [WEEKLY_EXECUTION.md](WEEKLY_EXECUTION.md). O conteúdo abaixo preserva a descrição anterior da base/propostas e não comprova integração ou aceite; prioridades conflitantes são substituídas pelo plano atual.
+
 # Organização do backlog deste projeto
 
 As issues são entregas com resultado e aceite próprios. O número identifica o item, não estabelece sua ordem de execução. Os marcos M0–M5 representam capacidades, sem se declararem sprints ou uma metodologia universal.
@@ -37,7 +39,7 @@ Agrupar por marco não cria bloqueio. #6 não depende automaticamente do piloto 
 
 Backlog por prioridade/área; itens prontos e desbloqueados; execução por responsável; revisões/validações; bloqueios com responsável e condição de liberação; roadmap por marco. Veja as políticas adaptáveis no [guia de Projects](../guides/PROJECTS.md).
 
-**Estado atual:** a conexão da CLI não possui `read:project`. Pelo navegador foi aberto o [Project #5](https://github.com/users/PHnsilva/projects/5), ainda identificado como projeto sem título e sem configuração/importação confirmadas. A continuação foi interrompida porque o controle do navegador não conseguiu confirmar o endereço atual com segurança. Não declarar quadro pronto nem criar outro sem conferir esse registro. A proposta de visões permanece pendente; nenhuma permissão foi ampliada. Veja [a preparação do Project](project-setup.md).
+**Estado atual em 01/11/2026:** [Project #5](https://github.com/users/PHnsilva/projects/5/views/1) configurado com onze issues, seis fases, visões e dependências conferidas. A autenticação da CLI foi concluída pelo proprietário para operação em segundo plano. Ver [KANBAN.md](KANBAN.md) para as políticas e pendências de aceite; o estado vivo está nas issues e no Project. A [issue #12](https://github.com/PHnsilva/sofiie-agents/issues/12) permanece aberta para revisão da organização/documentação.
 
 ## Referências usadas na escrita
 

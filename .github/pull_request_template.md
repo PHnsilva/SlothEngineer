@@ -1,16 +1,19 @@
-## Problema e comportamento resultante
+## Problema e resultado
 
-Issue: #
+Descreva o que mudou e o comportamento/decisão resultante.
 
-Use `Closes #N` apenas para a entrega final quando os critérios e o procedimento local permitirem. PR parcial apenas referencia. Declare bases e ordem de integração de PRs dependentes.
+## Rastreabilidade
 
-## Validação e evidências
+- Refs #ISSUE
+- Sprint:
+- Tamanho da issue (PP=1, P=2, M=4, L=8):
+- Base/dependências e ordem de revisão, se empilhado:
+- Escopo e contratos afetados:
 
-- [ ] `npm run check`
-- [ ] Critérios de aceite verificados
-- [ ] Mocks e limitações descritos
-- [ ] Sem dados privados, serviço pago ou ampliação de permissões
+## Validação e limites
 
-## Limitações e revisão necessária
+Informe procedimentos/comandos, resultados, evidências, mocks e pendências. Não afirme verificação que não executou.
 
-Indique integração real pendente, risco e revisor necessário. Não declarar aprendizado de modelo sem avaliação independente.
+## Revisão do proprietário
+
+Aguardando revisão e aceite de Pedro (PHnsilva). Agentes não aprovam, não fazem merge nem publicam. Issue permanece aberta até o aceite pertinente.
