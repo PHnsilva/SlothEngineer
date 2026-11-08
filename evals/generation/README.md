@@ -4,13 +4,13 @@ Este protocolo separa a qualidade da resposta do roteamento determinístico. Val
 
 ## Conjuntos
 
-`cases.public.json` contém seis cenários sintéticos que podem ser lidos por quem desenvolve instruções. Três ficam no conjunto de desenvolvimento, três no conjunto público de regressão. Há casos de requisitos, revisão baseada em evidência, decomposição de issue, modelagem, fronteira adversarial e relato de validação. Isso é uma amostra inicial de cobertura, não uma amostra estatística nem representação de todos os 25 perfis.
+`cases.public.json` contém 24 cenários sintéticos: 12 de desenvolvimento e 12 de regressão pública. Cada cenário declara as especialidades pertinentes; em conjunto, os rótulos cobrem os 23 perfis atuais e incluem cinco casos DevOps, mais do que qualquer outra especialidade. Essa cobertura organiza a amostra e não comprova a competência de cada perfil. Os casos incluem requisitos, serviços, interface, acessibilidade, segurança, operação, dados, IA, interoperabilidade, desktop, mobile e jogos. É uma amostra inicial qualitativa, não uma amostra estatística.
 
-Os casos públicos podem contaminar uma comparação se forem usados para ajustar instruções e depois chamados de teste independente. Registre cada alteração de caso e instrução. Não mova um caso entre partições para melhorar resultados.
+Os casos públicos podem contaminar uma comparação se forem usados para ajustar instruções e depois chamados de teste independente. Registre cada alteração de caso e instrução. Não mova um caso entre partições para melhorar resultados. O validador confere IDs do catálogo, cobertura de todos os perfis, partições públicas e a prioridade relativa de DevOps; essas verificações são de estrutura, não avaliação de respostas.
 
 ### Reserva
 
-Não há casos de reserva neste repositório nem baseline de geração. O responsável pela reserva é o proprietário do repositório, como custodiante inicial. Antes da baseline, ele deve criar casos sintéticos novos, revisar critérios e manter conteúdo, prompts e respostas de reserva fora do Git público, por exemplo em `.local/evals/reserve/`, que é ignorado pelo Git. Registre a revisão e o hash do conjunto em avaliação local; não publique o hash se facilitar tentativa de adivinhar o conteúdo. O conjunto só pode ser aberto depois de congelar código, instruções e critérios da comparação. Repor, editar ou reclassificar um caso consumido exige registrar a mudança e preparar uma nova reserva. Nenhum dado pessoal real deve entrar no conjunto.
+Não há casos de reserva neste repositório nem baseline de geração. O responsável pela reserva é o proprietário do repositório, como custodiante inicial; a criação efetiva da reserva segue pendente dele. Antes da baseline, o custodiante deve criar casos sintéticos novos, revisar critérios e manter conteúdo, prompts e respostas de reserva fora do Git público, por exemplo em `.local/evals/reserve/`, que é ignorado pelo Git. Registre a revisão e o hash do conjunto em avaliação local; não publique o hash se facilitar tentativa de adivinhar o conteúdo. O conjunto só pode ser aberto depois de congelar código, instruções e critérios da comparação. Repor, editar ou reclassificar um caso consumido exige registrar a mudança e preparar uma nova reserva. Nenhum dado pessoal real deve entrar no conjunto.
 
 O executor da baseline não precisa ser o custodiante. O custodiante controla acesso e libera apenas a decisão e evidência necessárias. Uma cópia de reserva em PR, issue, CI, logs ou resposta pública deixa de ser reserva.
 
@@ -35,7 +35,7 @@ Este processo não estabelece qualidade certificada ou conformidade. A página d
 
 ## Situação inicial
 
-- Dados públicos: seis casos sintéticos validados estruturalmente.
+- Dados públicos: 24 casos sintéticos validados estruturalmente, com rótulos para os 23 perfis e prioridade relativa de cenários DevOps.
 - Reserva: ainda não criada; o proprietário do repositório é o custodiante inicial e precisa revisar os casos antes da baseline.
 - Execução de modelo: nenhuma.
 - Baseline, comparação e aceite humano da rubrica: pendentes.

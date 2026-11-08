@@ -49,9 +49,11 @@ console.log(
             development: generationCases.filter((item) => item.partition === 'development').length,
             regression: generationCases.filter((item) => item.partition === 'regression').length,
           },
+          specialistCoverage: new Set(generationCases.flatMap((item) => item.specialties)).size,
+          devopsCases: generationCases.filter((item) => item.specialties.includes('devops')).length,
           adversarialCases: generationCases.filter((item) => item.adversarial).length,
           limitation:
-            'Valida somente a estrutura dos dados públicos. Não executa modelo, pontua respostas ou cria baseline; reserva privada não é carregada.',
+            'Valida a estrutura e a cobertura declarada dos dados públicos. Não executa modelo, pontua respostas ou cria baseline; a reserva privada não é carregada.',
         },
       ],
     },
