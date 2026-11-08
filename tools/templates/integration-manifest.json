@@ -1,0 +1,13 @@
+{
+  "purpose": "Modelo de proposta para preencher e revisar, sem execução automática.",
+  "id": "identificador-curto",
+  "consumerAndNeed": "Projeto consumidor, problema e resultado esperado.",
+  "sourceAndLicense": "Documentação primária, versão e licença do código/dados.",
+  "contract": "Operações delimitadas, schemas de entrada/saída e limites.",
+  "dataAndCredentials": "Dados transmitidos, retenção e componente responsável pelas credenciais.",
+  "cost": "Condições verificadas do uso pretendido, sem cobrança automática.",
+  "failurePolicy": "Timeout, limite de saída, erros, repetição e cancelamento.",
+  "validation": "Testes simulados e homologação real necessários, separados.",
+  "enablement": "Autorização e configuração local que habilitam a capacidade.",
+  "status": "proposal-only"
+}

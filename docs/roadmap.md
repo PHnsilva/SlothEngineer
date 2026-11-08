@@ -1,6 +1,6 @@
 # Plano do projeto
 
-Este plano define entregas, dependências e critérios de saída. Não é uma promessa de prazo. As estimativas são ciclos de trabalho, condicionados a hardware, disponibilidade e resultados das avaliações.
+Este plano define capacidades e critérios de saída, sem escolher uma metodologia de gestão. A execução segue as issues e dependências revisadas em [backlog.md](backlog.md); números de marco não impõem uma cadeia global nem representam sprints.
 
 ## Objetivo
 
@@ -8,29 +8,29 @@ Criar uma base de engenharia assistida por agentes que ajude no Sofiie e em outr
 
 ## M0. Fundação e contratos
 
-Entrega inicial: repositório independente, 24 perfis, roteador, CLI, servidor e cliente MCP stdio, handoff, adaptador Ollama, referências com fontes, testes e CI. O bootstrap não inclui modelo, integração externa homologada ou pesos treinados.
+Entrega inicial após adequação P0: repositório independente, 23 perfis de engenharia de software, roteador, CLI, servidor e cliente MCP stdio, handoff, adaptador Ollama, referências com fontes, testes e CI. O bootstrap não inclui agente de voz, modelo instalado, integração externa homologada ou pesos treinados.
 
 Saída: comandos documentados executam; contrato MCP é exercitado por cliente real de teste; entradas inválidas e ferramentas não autorizadas falham; nenhum segredo ou arquivo privado publicado. A avaliação de roteamento precisa estar verde, sem ser apresentada como qualidade de IA.
 
 ## M1. Modelo local e primeira integração externa
 
-Estimativa inicial: 1 a 2 ciclos. Depende de M0.
+Issues #1, #2 e #9 são entregas independentes. A fundação necessária já está publicada.
 
 1. Inventariar RAM disponível, GPU/VRAM, disco e processos concorrentes. Não recomendar compra.
 2. Escolher um modelo de código/instruções pequeno e quantizado, com licença compatível; começar com uma única inferência por vez.
 3. Instalar Ollama e baixar o modelo somente após seleção de tamanho/licença. Não há download automático no bootstrap.
 4. Desabilitar cloud no serviço, testar falha fechada e documentar medição em português: latência, RAM, tokens e taxa de conclusão.
-5. Registrar o servidor em um host MCP escolhido pelo usuário. Validar as cinco ferramentas e capturar evidência sem dados privados.
+5. Registrar o servidor em um host MCP escolhido pelo usuário. Validar as ferramentas e recursos documentados e capturar evidência sem dados privados.
 6. Conectar um agente externo por MCP com uma ferramenta de leitura, allowlist e teste negativo. O teste entre processos do mesmo projeto não substitui esta entrega.
 
 Saída: relatório reproduzível com modelo, licença, versão, máquina, limitações e host; chamada externa recebida e respondida; nenhuma cobrança ou fallback remoto. Se a máquina não suportar qualidade útil, manter handoff e reduzir escopo.
 
 ## M2. Avaliações de geração e ciclo de melhoria
 
-Estimativa inicial: 2 ciclos. Depende de M1 para avaliar modelos, mas as rubricas podem ser preparadas antes.
+O protocolo #10 pode ser preparado independentemente. A baseline #3 depende de #1 e #10; o ciclo de melhoria #4 depende da baseline.
 
-1. Definir uma amostra inicial de tarefas sintéticas com critério observável, falhas e cobertura justificada pelo uso; ampliar conforme evidência de recorrência, sem presumir que todo perfil precisa de um caso próprio.
-2. Separar desenvolvimento, regressão pública e reserva privada. Não publicar dados reais nem expor casos de reserva ao agente otimizado.
+1. Criar casos sintéticos por especialidade com critério observável e falhas relevantes, dando mais cenários a DevOps; cobrir engenharia de software, manutenção, migrações e tarefas adversariais sem pressupor cobertura igual por perfil. Voz/áudio pertence ao agente externo e não faz parte desta avaliação.
+2. Separar desenvolvimento, regressão pública e reserva privada. Não publicar dados reais nem expor gabaritos do conjunto de reserva ao agente otimizado.
 3. Definir rubricas: atendimento do requisito, correção verificável, achados válidos, acessibilidade, segurança e ausência de alegações falsas.
 4. Executar baseline com versão fixada; registrar resultado por caso, intervenção humana, tempo e hardware.
 5. Alterar uma variável por proposta e comparar com baseline. Exigir ausência de regressão crítica e melhora justificada no conjunto independente, com tamanho da amostra explícito.
@@ -42,11 +42,11 @@ Saída: baseline real, relatório comparativo e uma melhoria revisada. Nenhuma p
 
 ## M3. Piloto no Sofiie e ferramentas controladas
 
-Estimativa inicial: 2 a 3 ciclos. Depende de M2.
+A contribuição piloto #5 depende da melhoria avaliada #4 e da escolha de uma issue consumidora pelo proprietário.
 
 1. Escolher uma issue pequena no produto e critérios de aceite antes de editar.
 2. Usar um implementador, QA e os revisores de risco necessários. Comparar trabalho direto com delegação para verificar se a especialização compensa.
-3. Validar interface com Playwright/axe-core, teclado e leitor de tela quando aplicável; backend com testes de contrato e segurança; desktop no Windows; voz em português; Roblox no Studio quando houver tarefa de jogo.
+3. Validar interfaces com inspeção e ferramentas pertinentes à tecnologia do projeto; backend com contratos e segurança; aplicações desktop no ambiente alvo; jogos no ambiente de execução escolhido. Avaliação de fala, áudio, STT/TTS e interação vocal exige o agente externo e uma integração aprovada, ainda não disponíveis neste ciclo.
 4. Se forem necessárias ferramentas com escrita, projetar workspace isolado, caminhos permitidos, timeout, limite de saída e confirmação por operação. Não habilitar shell irrestrito.
 5. Abrir PR no Sofiie para revisão independente. Não alterar permissões nem implantar produção a partir da saída do modelo.
 
@@ -54,23 +54,23 @@ Saída: issue atendida com evidências reais e revisão. CI verde, PR aberto ou 
 
 ## M4. Memória persistente, recuperação e observabilidade
 
-Estimativa inicial: 1 a 2 ciclos. Depende de volume real de execuções em M2/M3.
+A decisão #6 usa evidência dos ciclos #4. O piloto pode contribuir com contexto, mas não é um bloqueador obrigatório.
 
-Adotar SQLite para runs, avaliações, fontes e lições candidatas/aprovadas; definir migrações, retenção, expiração, correção e backup/restauração. Manter conteúdo privado fora do Git. Começar busca textual/FTS5 e medir recuperação antes de adicionar embeddings locais. Logs devem registrar metadados mínimos, nunca prompts completos por padrão.
+Comparar manter arquivos com alternativa local adequada às necessidades de runs, avaliações, fontes e lições. Definir proveniência, retenção, correção/exclusão e requisitos de recuperação. Não impor banco ou motor de busca antes dessa decisão. Implementação posterior precisa de issue própria e testes de migração/backup/restauração. Conteúdo privado permanece fora do Git.
 
 Saída: recuperação com origem e validade, teste de exclusão/retificação, restauração comprovada e comparação de relevância com a busca lexical inicial.
 
 ## M5. A2A e colaboração de longa duração
 
-Estimativa inicial: avaliar após M3/M4; não é prioridade do MVP.
+A decisão e o contrato #7 dependem da comunicação externa #9 e de uma necessidade real. Não dependem automaticamente de persistência ou piloto.
 
-Implementar adaptador A2A oficial quando houver outro agente independente para integrar. Definir Agent Card, descoberta, delegação, estados, cancelamento, autorização, identidade, idempotência e limites. Usar MCP para ferramentas. Se HTTP for necessário, exigir autenticação, validação de origem/host e política de exposição antes de abrir portas.
+Avaliar protocolo de delegação adequado quando houver outro agente independente para integrar. A2A é uma possibilidade a comparar, não implementação já decidida. Depois da decisão, abrir issue própria para implementação/homologação. Definir Agent Card, descoberta, delegação, estados, cancelamento, autorização, identidade, idempotência e limites. Usar MCP para ferramentas. Se HTTP for necessário, exigir autenticação, validação de origem/host e política de exposição antes de abrir portas.
 
-Saída: dois agentes de implementações distintas trocam tarefa e resultado, incluindo cancelamento, timeout e falha de autorização. Um JSON parecido com Agent Card não comprova conformidade A2A.
+Saída da decisão atual: caso, alternativas e contrato revisados. Aceite de implementação futura: dois agentes de implementações distintas trocam tarefa e resultado, incluindo cancelamento, timeout e falha de autorização. Um JSON parecido com Agent Card não comprova conformidade A2A.
 
 ## Critérios para adicionar especialistas
 
-Os 24 perfis cobrem o escopo inicial. Criar um perfil novo somente se houver tarefas recorrentes, corpus próprio, rubrica de qualidade e benefício medido. Exemplos futuros condicionais: computação gráfica/3D, áudio de jogos, redes multiplayer, engenharia embarcada, sistemas distribuídos e pesquisa de ML. Antes disso, usar o perfil mais próximo com instruções de tarefa.
+Os 23 perfis cobrem o escopo de engenharia de software aprovado. Criar um perfil novo somente se houver tarefas recorrentes, corpus próprio, rubrica de qualidade e benefício medido. A responsabilidade de voz/áudio está fora deste catálogo e pertence a um agente externo; não criar aqui perfil de voz, embarcados ou tempo real sem demanda e decisão específicas. Antes de ampliar o catálogo, usar o perfil existente mais próximo com instruções de tarefa.
 
 ## Indicadores
 
