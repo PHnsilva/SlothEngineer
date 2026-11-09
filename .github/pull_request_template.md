@@ -1,14 +1,19 @@
-## Problema e comportamento resultante
+## Problema e resultado
 
-Closes #
+Descreva o que mudou e o comportamento/decisão resultante.
 
-## Validação e evidências
+## Rastreabilidade
 
-- [ ] `npm run check`
-- [ ] Critérios de aceite verificados
-- [ ] Mocks e limitações descritos
-- [ ] Sem dados privados, serviço pago ou ampliação de permissões
+- Refs #ISSUE
+- Sprint:
+- Tamanho da issue (PP=1, P=2, M=4, L=8):
+- Base/dependências e ordem de revisão, se empilhado:
+- Escopo e contratos afetados:
 
-## Limitações e revisão necessária
+## Validação e limites
 
-Indique integração real pendente, risco e revisor necessário. Não declarar aprendizado de modelo sem avaliação independente.
+Informe procedimentos/comandos, resultados, evidências, mocks e pendências. Não afirme verificação que não executou.
+
+## Revisão do proprietário
+
+Aguardando revisão e aceite de Pedro (PHnsilva). Agentes não aprovam, não fazem merge nem publicam. Issue permanece aberta até o aceite pertinente.

@@ -7,7 +7,7 @@
   },
   {
     "id": "api",
-    "objective": "Criar endpoint backend Fastify",
+    "objective": "Criar endpoint backend com autorização",
     "expected": "backend",
     "reviewer": "security"
   },
@@ -18,8 +18,8 @@
     "reviewer": "accessibility"
   },
   {
-    "id": "roblox",
-    "objective": "Corrigir Roblox Luau na engine",
+    "id": "simulation",
+    "objective": "Corrigir física e sincronização na engine",
     "expected": "game-engine",
     "reviewer": "qa"
   },
@@ -63,6 +63,12 @@
     "id": "memory",
     "objective": "Projetar RAG e recuperação de conhecimento",
     "expected": "knowledge",
+    "reviewer": "qa"
+  },
+  {
+    "id": "modeling",
+    "objective": "Criar diagramas de sequência e modelagem",
+    "expected": "modeling",
     "reviewer": "qa"
   },
   {

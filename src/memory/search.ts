@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import { z } from 'zod';
+import { specialists } from '../agents/catalog.js';
 
 const entrySchema = z.strictObject({
   id: z.string(),
@@ -23,9 +24,16 @@ export async function searchKnowledge(query: string) {
     .replace(/\p{Diacritic}/gu, '')
     .toLowerCase()
     .split(/\s+/);
-  return [...reference, ...approved]
+  const profiles = specialists.map((agent) => ({
+    id: `specialist-${agent.id}`,
+    title: `Referências: ${agent.name}`,
+    content: [agent.mission, ...agent.keywords, ...agent.checks].join(' '),
+    status: 'reference' as const,
+    sources: ['docs/references.md', ...agent.references],
+  }));
+  return [...reference, ...profiles, ...approved]
     .map((entry) => {
-      const corpus = `${entry.title} ${entry.content}`
+      const corpus = `${entry.title} ${entry.content} ${entry.sources.join(' ')}`
         .normalize('NFD')
         .replace(/\p{Diacritic}/gu, '')
         .toLowerCase();
