@@ -31,12 +31,14 @@ Saída: relatório reproduzível com modelo, licença, versão, máquina, limita
 
 O protocolo #10 pode ser preparado independentemente. A baseline #3 depende de #1 e #10; o ciclo de melhoria #4 depende da baseline.
 
-1. Criar casos sanitizados de backend, interface, acessibilidade, segurança, integrações entre sistemas e jogos, incluindo falhas, manutenção, migrações e tarefas adversariais. Avaliação de voz e áudio pertence ao agente externo; sua integração não faz parte deste escopo.
+1. Criar casos sintéticos por especialidade com critério observável e falhas relevantes, dando mais cenários a DevOps; cobrir engenharia de software, manutenção, migrações e tarefas adversariais sem pressupor cobertura igual por perfil. Voz/áudio pertence ao agente externo e não faz parte desta avaliação.
 2. Separar desenvolvimento, regressão pública e reserva privada. Não publicar dados reais nem expor gabaritos do conjunto de reserva ao agente otimizado.
 3. Definir rubricas: atendimento do requisito, correção verificável, achados válidos, acessibilidade, segurança e ausência de alegações falsas.
 4. Executar baseline com versão fixada; registrar resultado por caso, intervenção humana, tempo e hardware.
 5. Alterar uma variável por proposta e comparar com baseline. Exigir ausência de regressão crítica e melhora justificada no conjunto independente, com tamanho da amostra explícito.
 6. Registrar lição candidata em PR, acompanhada da evidência. Aprová-la antes de incluí-la em conhecimento recuperável.
+
+O protocolo e os dados públicos iniciais estão em [`evals/generation`](../evals/generation/README.md). Essa validação estrutural não é execução de modelo. A reserva continua pendente; a baseline só começa depois de o custodiante preparar casos privados e código, instruções e critérios estarem congelados.
 
 Saída: baseline real, relatório comparativo e uma melhoria revisada. Nenhuma porcentagem simulada é apresentada como ganho observado. Não criar execução diária agendada sem pedido explícito.
 
