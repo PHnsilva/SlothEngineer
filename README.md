@@ -1,3 +1,29 @@
+<!-- BEGIN CURRENT PLAN 2026-11-06 -->
+
+# SlothEngineer
+
+Sistema de engenharia com DevOps prioritário e evolução continuada dos demais especialistas, sem especialista interno de voz.
+
+**Planejamento vigente em 06/11/2026: até 5 sprints de entrega + S6 de validação extra/mudanças.** As issues e a matriz documentam todo o ciclo; não comprovam implementação, treinamento, integração ou aceite. Preservar código e PRs existentes. Somente Pedro revisa/aprova PRs e aceita issues.
+
+- [Requisitos e limites](docs/REQUIREMENTS.md)
+- [Arquitetura e fronteiras](docs/ARCHITECTURE_PLAN.md)
+- [Todas as sprints e issues](docs/DELIVERY_PLAN.md)
+- [Rastreabilidade](docs/TRACEABILITY.md)
+- [Execução semanal por dependências e PRs encadeados](docs/WEEKLY_EXECUTION.md)
+- [Retomada diária](docs/EXECUTION_PLAN.md)
+- [Contribuição](docs/CONTRIBUTION_POLICY.md)
+
+Busca encontra fontes em qualquer lugar pertinente e preserva filtros do usuário; Validação escolhe a base adequada ao tipo de dado e verifica as referências independentemente. Não aplicar uma whitelist científica global ao Busca. O modelo pode ser compartilhado; as ferramentas e critérios de domínio são específicos.
+
+Trabalho exclusivamente no C:, sem serviços pagos obrigatórios. SlothGeo é separado e adiado para 21/11, não um sexto agente desta rotina.
+<!-- END CURRENT PLAN 2026-11-06 -->
+
+DevOps prioritário, preservando os demais especialistas. A adequação para 23 perfis e voz externa já está proposta no PR #22, ainda em revisão; não refazer nem apresentar sua proposta como código já integrado.
+
+<details>
+<summary>Descrição anterior da base e propostas — consultar com o estado vivo dos PRs</summary>
+
 # Sofiie Agents
 
 Base local de especialistas para desenvolver e revisar o [Sofiie](https://github.com/PHnsilva/Sofiie) e outros projetos. Um orquestrador prepara a tarefa, seleciona perfis e indica revisores. Um servidor MCP permite que outros assistentes usem esse catálogo e essas ferramentas.
@@ -96,3 +122,5 @@ O [backlog revisado](docs/backlog.md) identifica entregas independentes e consum
 Abra uma issue com critério de aceite, trabalhe em branch própria e envie PR com evidências. Conhecimento só entra em `knowledge/approved.json` após revisão e evidência. Não publique dados pessoais, prompts privados, chaves ou respostas de usuários.
 
 Veja [CONTRIBUTING.md](CONTRIBUTING.md), [AGENTS.md](AGENTS.md) e [SECURITY.md](SECURITY.md). Licença [MIT](LICENSE); dependências e modelos mantêm suas próprias licenças.
+
+</details>

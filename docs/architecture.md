@@ -1,3 +1,5 @@
+> Atualização de planejamento — 06/11/2026: o ciclo, requisitos e dependências vigentes estão em [REQUIREMENTS.md](REQUIREMENTS.md), [DELIVERY_PLAN.md](DELIVERY_PLAN.md) e [WEEKLY_EXECUTION.md](WEEKLY_EXECUTION.md). O conteúdo abaixo preserva a descrição anterior da base/propostas e não comprova integração ou aceite; prioridades conflitantes são substituídas pelo plano atual.
+
 # Arquitetura inicial
 
 ## Decisão

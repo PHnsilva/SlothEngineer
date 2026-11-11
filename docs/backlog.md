@@ -1,3 +1,5 @@
+> Atualização de planejamento — 06/11/2026: o ciclo, requisitos e dependências vigentes estão em [REQUIREMENTS.md](REQUIREMENTS.md), [DELIVERY_PLAN.md](DELIVERY_PLAN.md) e [WEEKLY_EXECUTION.md](WEEKLY_EXECUTION.md). O conteúdo abaixo preserva a descrição anterior da base/propostas e não comprova integração ou aceite; prioridades conflitantes são substituídas pelo plano atual.
+
 # Organização do backlog deste projeto
 
 As issues são entregas com resultado e aceite próprios. O número identifica o item, não estabelece sua ordem de execução. Os marcos M0–M5 representam capacidades, sem se declararem sprints ou uma metodologia universal.
