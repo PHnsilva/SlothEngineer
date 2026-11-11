@@ -1,5 +1,11 @@
 # Preparação do Project
 
+## Atualização em 01/11/2026
+
+O Project #5 foi reutilizado como **Sofiie Agents**, vinculado ao repositório e populado com as onze issues abertas. Campos, seis fases, visões e dependências foram conferidos pela API após salvar. A CLI foi autenticada pelo proprietário e permite operação em segundo plano. Automações de fechamento/movimento por PR foram retiradas para preservar o aceite humano. Consultar [o quadro e a retomada](KANBAN.md).
+
+Os parágrafos seguintes preservam o histórico da tentativa anterior. A limitação de acesso ali descrita foi resolvida nesta rodada; ela não representa o estado atual.
+
 Registro do trabalho iniciado no [Project #5 de PHnsilva](https://github.com/users/PHnsilva/projects/5), para evitar duplicata e distinguir proposta de configuração concluída.
 
 A continuação tem aceite e bloqueio próprios na [issue #12](https://github.com/PHnsilva/sofiie-agents/issues/12). Não fica escondida em checklist de documentação nem depende de aceitar o PR dos guias.
