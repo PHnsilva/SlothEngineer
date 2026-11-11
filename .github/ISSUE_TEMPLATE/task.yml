@@ -1,25 +1,39 @@
-name: Entrega ou melhoria
-description: Propor trabalho com evidência, aceite e restrição de custo.
-title: '[Entrega] '
+name: Entrega executável
+description: Definir resultado, aceite e dependências sem esconder trabalho independente.
+labels: ['type:task']
 body:
   - type: textarea
     id: problem
     attributes:
       label: Problema e contexto
-      description: Inclua apenas exemplos públicos ou sanitizados.
+      description: Descreva estado atual e evidência sanitizada. Causa é hipótese até ser investigada.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Resultado esperado e escopo
+      description: Qual comportamento ou decisão estará disponível? Defina os limites; trabalhos com aceite próprio merecem issues separadas.
     validations:
       required: true
   - type: textarea
     id: acceptance
     attributes:
       label: Critérios de aceite
-      description: Defina comportamento verificável e evidências necessárias.
+      description: Liste condições observáveis e erros relevantes. Checklist não deve esconder entregas com responsável ou bloqueio próprios.
     validations:
       required: true
   - type: textarea
     id: constraints
     attributes:
-      label: Dependências, custo e limitações
-      description: Identifique a etapa do roadmap. Custo contratado deve continuar zero.
+      label: Dependências e decisões
+      description: Informe bloqueada por, motivo, responsável e evidência de desbloqueio. Relacionada a não implica bloqueio. Se não houver, declare isso.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validação, fontes e limites
+      description: Como provar o resultado? Indique ambiente, artefatos, fontes e limites. Custo contratado deve continuar zero.
     validations:
       required: true

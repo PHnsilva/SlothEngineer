@@ -3,9 +3,10 @@ import assert from 'node:assert/strict';
 import { planTask } from '../src/orchestrator/planner.js';
 import { specialists, specialistInstructions } from '../src/agents/catalog.js';
 
-test('catálogo contém 24 perfis distintos com critérios específicos', () => {
-  assert.equal(specialists.length, 24);
-  assert.equal(new Set(specialists.map((agent) => agent.id)).size, 24);
+test('catálogo contém perfis distintos com critérios e fontes por competência', () => {
+  assert.equal(new Set(specialists.map((agent) => agent.id)).size, specialists.length);
+  assert.ok(specialists.length >= 25);
+  assert.ok(specialists.every((agent) => agent.references.length > 0));
   for (const agent of specialists)
     assert.ok(specialistInstructions(agent.id).includes(agent.checks[0]!));
 });

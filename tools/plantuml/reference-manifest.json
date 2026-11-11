@@ -1,0 +1,83 @@
+{
+  "source_repository": "https://github.com/joaopauloaramuni/projeto-de-software",
+  "commit": "6e6140a2a2562e31a3eb035f4940f7b888909145",
+  "source_path": "PROJETOS/Python/Projeto PlantUML API",
+  "license": "MIT; see upstream/LICENSE",
+  "status": "reference-only",
+  "executed_by_runtime": false,
+  "notes": "Unmodified selected source snapshot. Images and PDF omitted from Git; full download retained in .local. HTTP client is not adopted as the runtime adapter.",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "c42b9854788c922cf9a2eee778a126c09a75b399de8a4292c21cab4e9986fc94"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "7d672ea072d46241dcbbc030bf5ce5ab5dea32dce53eab8410191871b3586aba"
+    },
+    {
+      "path": "main.py",
+      "sha256": "d8281d346784c5d9d9a80b7899b471c1a02be3664cd29b60dfe2a48b48c3044a"
+    },
+    {
+      "path": "plantuml_client.py",
+      "sha256": "fbf3a296ae8a2703169d005272340581b815da3550a61525df7584479466795e"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "4267397420075e6c30506d0f374a699a634dbdc2856d7718f0dd156d3c869e46"
+    },
+    {
+      "path": "plantuml_code/activity_diagram.puml",
+      "sha256": "77d0333e92c7830dab0582a39776d402eb83115bb9e3e8b1b291fc6907a73ed9"
+    },
+    {
+      "path": "plantuml_code/archimate_diagram.puml",
+      "sha256": "44f097956f3d8bfe78edd65e737edc637023c831cf5062b50d6d09cfb5dbeba7"
+    },
+    {
+      "path": "plantuml_code/class_diagram.puml",
+      "sha256": "68ada721539fa212402f16827405aa0c0f1256cf168f5b459af50388dd986350"
+    },
+    {
+      "path": "plantuml_code/communication_diagram.puml",
+      "sha256": "2e9aabb1d0860eeb7b33d130397338de1691d316ce6e227cb145228fbeaca478"
+    },
+    {
+      "path": "plantuml_code/component_diagram.puml",
+      "sha256": "72d57f60db3e5776d419b580bed496619df34a7d9b6909ceb97bc5e3cdaab9eb"
+    },
+    {
+      "path": "plantuml_code/deployment_diagram.puml",
+      "sha256": "2bff7ac3c5b6aa43496af34d31ba24d4bd9d8f56950ceaf419bc10542f02215f"
+    },
+    {
+      "path": "plantuml_code/entity_relationship_diagram.puml",
+      "sha256": "e160596149ae121131131c74772b4109a8a48f4f02309da278ac9917da479c78"
+    },
+    {
+      "path": "plantuml_code/json_diagram.puml",
+      "sha256": "2b3ed7c652b78992d899434f827aba6dc836a543fc8dec7ca55ab8c041b294ef"
+    },
+    {
+      "path": "plantuml_code/package_diagram.puml",
+      "sha256": "f1379df93226ed35e8e4aa2172a05ec7a5ad14b6d9a5394920def0c0315f7879"
+    },
+    {
+      "path": "plantuml_code/sequence_diagram.puml",
+      "sha256": "269b0dafcb3e7bfb0350311b1cde929a5ef326106f6e223959a3e4e87cfeb201"
+    },
+    {
+      "path": "plantuml_code/state_diagram.puml",
+      "sha256": "deafb890a32cf018561dfa6a516aa177139cb8e2be5d8eb14b2582b072da2302"
+    },
+    {
+      "path": "plantuml_code/use_case_diagram.puml",
+      "sha256": "1009bd641c60a8a8360c9c8688854d5bd73924aa5113b28b7c073307e0e28af5"
+    },
+    {
+      "path": "plantuml_code/wireframe_diagram.puml",
+      "sha256": "d8fcda6fa593f76c54a45f82d1513565f7109dfe039c236123a10e43c0891fb3"
+    }
+  ]
+}

@@ -3,3 +3,4 @@ dist
 package-lock.json
 .local
 reports/*.json
+tools/plantuml/upstream/

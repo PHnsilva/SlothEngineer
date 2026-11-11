@@ -4,6 +4,23 @@ import { specialists, getSpecialist, specialistInstructions } from '../agents/ca
 import { planTask, taskSchema } from '../orchestrator/planner.js';
 import { consultSpecialist } from '../providers/model.js';
 import { searchKnowledge } from '../memory/search.js';
+import { readFile } from 'node:fs/promises';
+import { getIntegrationCatalog } from '../tools/catalog.js';
+import { renderDiagram } from '../modeling/plantuml.js';
+
+const guideResources = [
+  ['overview', 'Guias reutilizáveis', 'guides/README.md'],
+  ['organization', 'Organização do projeto', 'guides/ORGANIZACAO-DO-PROJETO.md'],
+  ['issues', 'Issues executáveis', 'guides/ISSUES.md'],
+  ['projects', 'Projects e quadros', 'guides/PROJECTS.md'],
+  ['contributing', 'Contribuição geral', 'guides/CONTRIBUTING.md'],
+  ['agents', 'Modelo de instruções para agentes', 'guides/AGENTS.md'],
+  ['references', 'Catálogo de referências técnicas', 'docs/references.md'],
+  ['apis', 'Catálogo de APIs e condições de uso', 'docs/api-catalog.md'],
+  ['modeling', 'Modelagem e renderização local', 'docs/modeling.md'],
+  ['specialists', 'Contratos das especializações', 'docs/specialists.md'],
+  ['tools', 'Ferramentas e adaptadores', 'tools/README.md'],
+] as const;
 
 const readOnly = {
   readOnlyHint: true,
@@ -18,10 +35,32 @@ const idSchema = z.enum(specialists.map((item) => item.id) as [string, ...string
 
 export function createServer() {
   const server = new McpServer({ name: 'sofiie-agents', version: '0.1.0' });
+  let rendering = false;
+  for (const [id, title, path] of guideResources) {
+    server.registerResource(
+      title,
+      `sofiie://guides/${id}`,
+      {
+        mimeType: 'text/markdown',
+        description:
+          'Referência para consulta e adaptação. Não altera permissões nem a metodologia do projeto consumidor.',
+      },
+      async (uri) => ({
+        contents: [
+          {
+            uri: uri.href,
+            mimeType: 'text/markdown',
+            text: await readFile(new URL(`../../${path}`, import.meta.url), 'utf8'),
+          },
+        ],
+      }),
+    );
+  }
   server.registerTool(
     'list_specialists',
     {
-      description: 'Lista 24 perfis configuráveis. Não inicia agentes nem modelos.',
+      description:
+        'Lista perfis configuráveis com fontes para consulta. Não inicia agentes nem modelos.',
       inputSchema: z.strictObject({}),
       annotations: readOnly,
     },
@@ -78,6 +117,60 @@ export function createServer() {
       annotations: readOnly,
     },
     async ({ query }) => textResult(await searchKnowledge(query)),
+  );
+  server.registerTool(
+    'list_integrations',
+    {
+      description:
+        'Lista adaptadores disponíveis, código de referência e APIs futuras. Não habilita integrações nem chama rede.',
+      inputSchema: z.strictObject({}),
+      annotations: readOnly,
+    },
+    async () => textResult(await getIntegrationCatalog()),
+  );
+  server.registerTool(
+    'render_diagram',
+    {
+      description:
+        'Renderiza fonte UML restrita em PNG local. Requer Java e JAR já preparado; não grava arquivo nem envia fonte a servidor externo.',
+      inputSchema: z.strictObject({ source: z.string().trim().min(20).max(16000) }),
+      annotations: readOnly,
+    },
+    async ({ source }) => {
+      if (rendering)
+        return {
+          ...textResult({ error: 'Já há um diagrama em renderização. Aguarde e tente novamente.' }),
+          isError: true,
+        };
+      rendering = true;
+      try {
+        const png = await renderDiagram(source, 'png');
+        return {
+          content: [
+            {
+              type: 'text' as const,
+              text: JSON.stringify({
+                status: 'rendered',
+                format: 'png',
+                renderer: 'local',
+                semanticReviewRequired: true,
+                repositoryWrites: false,
+              }),
+            },
+            { type: 'image' as const, data: png.toString('base64'), mimeType: 'image/png' },
+          ],
+        };
+      } catch (error: unknown) {
+        return {
+          ...textResult({
+            error: error instanceof Error ? error.message : 'Renderização local indisponível.',
+          }),
+          isError: true,
+        };
+      } finally {
+        rendering = false;
+      }
+    },
   );
   return server;
 }

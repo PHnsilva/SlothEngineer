@@ -21,15 +21,29 @@ Exemplo de argumentos de planejamento:
 
 Não envie entradas de shell, caminhos livres ou segredos. O servidor rejeita campos desconhecidos. Stdout é exclusivo do protocolo; diagnósticos usam stderr.
 
-| Ferramenta           | Entrada                             | Efeito                                         |
-| -------------------- | ----------------------------------- | ---------------------------------------------- |
-| `list_specialists`   | `{}`                                | Lista perfis                                   |
-| `get_specialist`     | `id`                                | Obtém instruções e critérios                   |
-| `plan_task`          | `objective`, `specialists` opcional | Prepara plano                                  |
-| `consult_specialist` | `id`, `objective`                   | Prepara handoff ou usa Ollama local habilitado |
-| `search_knowledge`   | `query`                             | Consulta referências e lições versionadas      |
+| Ferramenta           | Entrada                             | Efeito                                            |
+| -------------------- | ----------------------------------- | ------------------------------------------------- |
+| `list_specialists`   | `{}`                                | Lista perfis                                      |
+| `get_specialist`     | `id`                                | Obtém instruções e critérios                      |
+| `plan_task`          | `objective`, `specialists` opcional | Prepara plano                                     |
+| `consult_specialist` | `id`, `objective`                   | Prepara handoff ou usa Ollama local habilitado    |
+| `search_knowledge`   | `query`                             | Consulta referências e lições versionadas         |
+| `list_integrations`  | `{}`                                | Lista estado, fontes e limites de cada integração |
+| `render_diagram`     | `source`                            | Renderiza PNG local por adaptador fixo e limitado |
 
 O servidor não inicia agentes em outros aplicativos, escreve em repositórios, instala modelos ou usa sua assinatura de assistente como API.
+
+## Catálogo e renderização
+
+`list_integrations` lista o estado de cada entrada em `tools/catalog.json`: adaptador implementado, referência ou API planejada. Não faz chamadas externas, não escolhe programa a executar e não habilita credenciais.
+
+`render_diagram` recebe `{ "source": "@startuml\n...\n@enduml" }`, valida a fonte e gera PNG por processo local fixo. A resposta contém estado e imagem MCP. Não recebe caminho de arquivo, não grava no repositório e não faz fallback remoto. Requer Java e JAR verificado já preparados; uma renderização por vez nesta instância. Includes, funções e imagens externas são rejeitados. Pré-requisito ausente e sintaxe inválida retornam erro explícito.
+
+A integração MCP foi testada com processo real deste projeto, incluindo imagem PNG, mas ainda não equivale a homologação em host de terceiros. Veja [tools](../tools/README.md).
+
+## Recursos para humanos e agentes
+
+O servidor oferece sete ferramentas e onze recursos Markdown somente de leitura em `sofiie://guides/`: `overview`, `organization`, `issues`, `projects`, `contributing`, `agents`, `references`, `apis`, `modeling`, `specialists` e `tools`. Um host compatível pode listar recursos e ler a referência desejada. Os guias exigem adaptação; sua leitura não muda permissões nem a metodologia do projeto consumidor.
 
 ## Cliente para um peer local
 
