@@ -29,7 +29,7 @@ Preparar especializações consumíveis e avaliáveis para os dois produtos, com
 
 ## Fila inicial, revista com o estado vivo
 
-1. [#15 Intenção e planejamento para Sofiie](https://github.com/PHnsilva/sofiie-agents/issues/15): mapear ai/voice/desktop/interoperability e definir contrato de proposta de ação/diálogo, sem executar ações.
+1. [#15 Intenção e planejamento para Sofiie](https://github.com/PHnsilva/sofiie-agents/issues/15): mapear ai/desktop/interoperability e definir contrato de proposta de ação/diálogo, sem executar ações. Voz, áudio, STT/TTS e interação falada pertencem ao agente externo previsto; transcrição pode ser entrada textual, sem perfil ou integração interna de voz disponível.
 2. [#16 Interpretação para Velumbra](https://github.com/PHnsilva/sofiie-agents/issues/16): contrato de pergunta, tradição, cartas/posições e interpretação, com conteúdo editorial identificado e sorteio fora do modelo.
 3. [#10 Casos/rubricas](https://github.com/PHnsilva/sofiie-agents/issues/10): manter os casos já propostos no PR #13 e acrescentar os cenários dos consumidores conforme contratos. Reserva privada não deve ficar acessível ao agente otimizado.
 4. [#1 Viabilidade local](https://github.com/PHnsilva/sofiie-agents/issues/1) e [#2 Host externo](https://github.com/PHnsilva/sofiie-agents/issues/2): inventariar recursos e homologar comunicação real; não baixar um modelo antes de selecionar tamanho/licença e compatibilidade.

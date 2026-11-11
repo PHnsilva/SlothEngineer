@@ -10,7 +10,7 @@ Criar uma base de engenharia assistida por agentes que ajude no Sofiie e em outr
 
 ## M0. Fundação e contratos
 
-Entrega inicial: repositório independente, 25 perfis, roteador, CLI, servidor e cliente MCP stdio, handoff, adaptador Ollama, referências com fontes, testes e CI. O bootstrap não inclui modelo, integração externa homologada ou pesos treinados.
+Entrega inicial após adequação P0: repositório independente, 23 perfis de engenharia de software, roteador, CLI, servidor e cliente MCP stdio, handoff, adaptador Ollama, referências com fontes, testes e CI. O bootstrap não inclui agente de voz, modelo instalado, integração externa homologada ou pesos treinados.
 
 Saída: comandos documentados executam; contrato MCP é exercitado por cliente real de teste; entradas inválidas e ferramentas não autorizadas falham; nenhum segredo ou arquivo privado publicado. A avaliação de roteamento precisa estar verde, sem ser apresentada como qualidade de IA.
 
@@ -31,7 +31,7 @@ Saída: relatório reproduzível com modelo, licença, versão, máquina, limita
 
 O protocolo #10 pode ser preparado independentemente. A baseline #3 depende de #1 e #10; o ciclo de melhoria #4 depende da baseline.
 
-1. Criar casos sanitizados de backend, interface, acessibilidade, segurança, voz, MCP e jogos, incluindo falhas e tarefas adversariais.
+1. Criar casos sanitizados de backend, interface, acessibilidade, segurança, integrações entre sistemas e jogos, incluindo falhas, manutenção, migrações e tarefas adversariais. Avaliação de voz e áudio pertence ao agente externo; sua integração não faz parte deste escopo.
 2. Separar desenvolvimento, regressão pública e reserva privada. Não publicar dados reais nem expor gabaritos do conjunto de reserva ao agente otimizado.
 3. Definir rubricas: atendimento do requisito, correção verificável, achados válidos, acessibilidade, segurança e ausência de alegações falsas.
 4. Executar baseline com versão fixada; registrar resultado por caso, intervenção humana, tempo e hardware.
@@ -46,7 +46,7 @@ A contribuição piloto #5 depende da melhoria avaliada #4 e da escolha de uma i
 
 1. Escolher uma issue pequena no produto e critérios de aceite antes de editar.
 2. Usar um implementador, QA e os revisores de risco necessários. Comparar trabalho direto com delegação para verificar se a especialização compensa.
-3. Validar interface com Playwright/axe-core, teclado e leitor de tela quando aplicável; backend com testes de contrato e segurança; desktop no Windows; voz em português; jogos no editor e ambiente de execução escolhidos quando houver tarefa dessa área.
+3. Validar interfaces com inspeção e ferramentas pertinentes à tecnologia do projeto; backend com contratos e segurança; aplicações desktop no ambiente alvo; jogos no ambiente de execução escolhido. Avaliação de fala, áudio, STT/TTS e interação vocal exige o agente externo e uma integração aprovada, ainda não disponíveis neste ciclo.
 4. Se forem necessárias ferramentas com escrita, projetar workspace isolado, caminhos permitidos, timeout, limite de saída e confirmação por operação. Não habilitar shell irrestrito.
 5. Abrir PR no Sofiie para revisão independente. Não alterar permissões nem implantar produção a partir da saída do modelo.
 
@@ -70,7 +70,7 @@ Saída da decisão atual: caso, alternativas e contrato revisados. Aceite de imp
 
 ## Critérios para adicionar especialistas
 
-Os 25 perfis cobrem o escopo inicial. Criar um perfil novo somente se houver tarefas recorrentes, corpus próprio, rubrica de qualidade e benefício medido. Exemplos futuros condicionais: computação gráfica/3D, áudio de jogos, redes multiplayer, engenharia embarcada, sistemas distribuídos e pesquisa de ML. Antes disso, usar o perfil mais próximo com instruções de tarefa.
+Os 23 perfis cobrem o escopo de engenharia de software aprovado. Criar um perfil novo somente se houver tarefas recorrentes, corpus próprio, rubrica de qualidade e benefício medido. A responsabilidade de voz/áudio está fora deste catálogo e pertence a um agente externo; não criar aqui perfil de voz, embarcados ou tempo real sem demanda e decisão específicas. Antes de ampliar o catálogo, usar o perfil existente mais próximo com instruções de tarefa.
 
 ## Indicadores
 

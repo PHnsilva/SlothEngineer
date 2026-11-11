@@ -5,7 +5,9 @@ import { specialists, specialistInstructions } from '../src/agents/catalog.js';
 
 test('catálogo contém perfis distintos com critérios e fontes por competência', () => {
   assert.equal(new Set(specialists.map((agent) => agent.id)).size, specialists.length);
-  assert.ok(specialists.length >= 25);
+  assert.equal(specialists.length, 23);
+  assert.ok(!specialists.some((agent) => agent.id === 'voice'));
+  assert.ok(!specialists.some((agent) => agent.id === 'modeling'));
   assert.ok(specialists.every((agent) => agent.references.length > 0));
   for (const agent of specialists)
     assert.ok(specialistInstructions(agent.id).includes(agent.checks[0]!));
@@ -19,21 +21,37 @@ test('interface recebe revisão de acessibilidade e QA', () => {
 });
 test('backend recebe revisão de segurança', () => {
   assert.ok(
-    planTask({ objective: 'Criar endpoint backend na API' }).reviewers.includes('security'),
+    planTask({
+      objective: 'Criar serviço backend com regra de negócio e autorização',
+    }).reviewers.includes('security'),
   );
+});
+test('aplicações desktop recebem revisão de acessibilidade e segurança', () => {
+  const plan = planTask({
+    objective: 'Desenvolver aplicação desktop e integrar o sistema operacional',
+  });
+  assert.ok(plan.workers.includes('desktop'));
+  assert.ok(plan.reviewers.includes('accessibility'));
+  assert.ok(plan.reviewers.includes('security'));
 });
 test('seleção explícita não perde especialistas menos frequentes', () => {
   const plan = planTask({
     objective: 'Investigar uma necessidade nova',
-    specialists: ['voice', 'privacy'],
+    specialists: ['accessibility', 'privacy'],
   });
-  assert.deepEqual(plan.workers, ['voice', 'privacy']);
+  assert.deepEqual(plan.workers, ['accessibility', 'privacy']);
   assert.equal(plan.routing, 'explicit');
 });
 test('objetivo, campos desconhecidos e especialistas inválidos são rejeitados', () => {
   assert.throws(() => planTask({ objective: 'a' }));
   assert.throws(() => planTask({ objective: 'Revisar projeto', shell: 'anything' }));
   assert.throws(() => planTask({ objective: 'Revisar projeto', specialists: ['unknown'] }));
+  assert.throws(() =>
+    planTask({ objective: 'Implementar interação por voz', specialists: ['voice'] }),
+  );
+  assert.throws(() =>
+    planTask({ objective: 'Criar diagrama de arquitetura', specialists: ['modeling'] }),
+  );
 });
 test('texto de tarefa não concede permissões nem inicia execução', () => {
   const plan = planTask({

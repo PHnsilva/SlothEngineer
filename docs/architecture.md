@@ -11,7 +11,7 @@ flowchart TD
     Human[Pedro ou host MCP] --> Server[Servidor MCP stdio]
     CLI[CLI local] --> Planner[Planejador determinístico]
     Server --> Planner
-    Server --> Profiles[25 perfis e critérios]
+    Server --> Profiles[23 perfis e critérios]
     Server --> Knowledge[Busca em conhecimento versionado]
     Server --> Provider[Consulta de especialista]
     Provider --> Handoff[Handoff sem modelo]

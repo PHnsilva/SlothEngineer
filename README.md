@@ -30,11 +30,11 @@ Base local de especialistas para desenvolver e revisar o [Sofiie](https://github
 
 O objetivo de longo prazo é melhorar instruções, conhecimento e resultados com avaliações e revisão humana. Esta versão **não treina pesos de modelos** e não modifica projetos autonomamente.
 
-## Estado inicial
+## Capacidades do catálogo
 
 | Disponível                                               | Limite atual                                                      |
 | -------------------------------------------------------- | ----------------------------------------------------------------- |
-| 25 perfis com missão e critérios próprios                | São especializações configuráveis, sem modelos treinados por área |
+| 23 perfis com missão e critérios próprios                | São especializações configuráveis, sem modelos treinados por área |
 | Orquestrador com seleção explícita ou por palavras-chave | Produz planos; não executa a tarefa planejada                     |
 | Servidor MCP stdio com 7 ferramentas                     | Sem endpoint público, autenticação HTTP ou A2A                    |
 | Cliente MCP para peers locais autorizados                | Uso via CLI e configuração local revisada                         |
@@ -74,7 +74,7 @@ O caminho inverso também existe: a CLI chama ferramentas de peers locais defini
 
 ## Guias e referências
 
-Os [guias reutilizáveis](guides/README.md) orientam issues, dependências, Projects, contribuição e agentes em projetos solo e em equipe, sem impor metodologia ou stack. O [catálogo técnico](docs/references.md) separa fontes por assunto e o [catálogo de APIs](docs/api-catalog.md) registra possibilidades e condições de adoção. O especialista de [modelagem](docs/modeling.md) conta com renderização PlantUML local opcional. Os guias também estão disponíveis como recursos MCP somente de leitura.
+Os [guias reutilizáveis](guides/README.md) orientam issues, dependências, Projects, contribuição e agentes em projetos solo e em equipe, sem impor metodologia ou stack. O [catálogo técnico](docs/references.md) separa fontes por assunto e o [catálogo de APIs](docs/api-catalog.md) registra possibilidades e condições de adoção. A ferramenta local de [diagramas](docs/modeling.md) conta com renderização PlantUML opcional e não exige um perfil especializado próprio. Os guias também estão disponíveis como recursos MCP somente de leitura.
 
 ## Ferramentas e APIs
 
@@ -82,7 +82,9 @@ A pasta [tools/](tools/README.md) reúne catálogo validado, adaptador local com
 
 ## Especialistas
 
-Produto e requisitos; arquitetura; backend; frontend; UX; design de interfaces; acessibilidade; QA; segurança; privacidade; DevOps; confiabilidade; desempenho; dados; engenharia de IA; avaliações; memória e recuperação; MCP e interoperabilidade; desktop; voz; experiência móvel; design de jogos; implementação de jogos e simulação; documentação e localização; modelagem e diagramas.
+Produto e requisitos; arquitetura; backend e serviços; frontend; UX; design de interfaces; acessibilidade; QA; segurança; privacidade; DevOps; confiabilidade; desempenho; dados; engenharia de IA; avaliações; memória e recuperação; integração e interoperabilidade; aplicações desktop; desenvolvimento móvel; design de jogos; engenharia de jogos; documentação e localização.
+
+Voz, áudio, STT/TTS e interação falada pertencem a um agente especializado externo, previsto para integração futura por MCP. Este repositório não contém esse perfil nem essa conexão. Acessibilidade continua responsável por barreiras de acesso, inclusive em interfaces de áudio; privacidade continua responsável por coleta, consentimento e retenção.
 
 Cada tarefa seleciona até três perfis de trabalho e até três funções de revisão. Isso não inicia processos. O [guia de especializações](docs/specialists.md) detalha entradas, responsabilidades, entregas, revisão e limites de cada competência, com referências técnicas separadas.
 
