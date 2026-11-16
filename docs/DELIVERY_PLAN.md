@@ -1,28 +1,29 @@
-# Plano de entrega — cinco sprints + validação extra
+# Plano de entregas — cinco sprints e validação extra
 
-Cada sprint dura até uma semana de execução deste projeto. S1–S5 entregam funcionalidades e S6 concentra validação extra/mudanças; verificar desde S1. Números de sprint são locais: uma dependência entre projetos pode exigir espera e não se resolve apenas porque ambos estão na mesma S2. Início/pausas vigentes prevalecem; não há datas finais garantidas por documentação.
+S1–S5 agrupam entregas funcionais; S6 agrupa validação adicional e mudanças documentais. Cada sprint tem duração máxima de sete dias. A ordem executável depende das relações entre issues, inclusive entre projetos; pertencer à mesma sprint não remove dependências.
 
-| Sprint | Objetivo                         | Unidades estimadas | Média diária para até 7 dias |
-| ------ | -------------------------------- | ------------------ | ---------------------------- |
-| S1     | Requisitos e especializações     | 28                 | 4.0                          |
-| S2     | Inferência e ferramentas seguras | 32                 | 4.57                         |
-| S3     | DevOps e revisão técnica         | 44                 | 6.29                         |
-| S4     | Avaliação e conhecimento         | 48                 | 6.86                         |
-| S5     | Piloto e melhoria contínua       | 32                 | 4.57                         |
-| S6     | Validação extra e mudanças       | 24                 | 3.43                         |
+As unidades são uma estimativa relativa do escopo planejado, não esforço restante nem evidência de conclusão. PP=1, P=2, M=4 e L=8. Issues e PRs são a fonte de critérios, validações e estado de aceite.
 
-A soma abaixo inclui entregas ainda em revisão, para rastrear o escopo total; não é esforço restante certificado. Conferir o que já foi produzido e aceito antes de selecionar nova implementação. A meta diária é 1 L equivalente por projeto ativo; não recontar issue/PR/agrupador como a mesma entrega.
+| Sprint    | Objetivo                         | Unidades estimadas |
+| --------- | -------------------------------- | -----------------: |
+| S1        | Requisitos e especializações     |                 28 |
+| S2        | Inferência e ferramentas seguras |                 32 |
+| S3        | DevOps e revisão técnica         |                 44 |
+| S4        | Avaliação e conhecimento         |                 48 |
+| S5        | Piloto e melhoria contínua       |                 32 |
+| S6        | Validação extra e mudanças       |                 36 |
+| **Total** | **Plano completo**               |            **220** |
 
 ## S1 — Requisitos e especializações
 
-| Issue                                                                   | Entrega                                                                  | Tamanho | Bloqueada por                                                           |
-| ----------------------------------------------------------------------- | ------------------------------------------------------------------------ | ------- | ----------------------------------------------------------------------- |
-| [SlothEngineer#23](https://github.com/PHnsilva/SlothEngineer/issues/23) | Padronizar issues, tamanhos e contribuição com aceite exclusivo de Pedro | P (2)   | Sem pré-requisito técnico anterior                                      |
-| [SlothEngineer#24](https://github.com/PHnsilva/SlothEngineer/issues/24) | Reconciliar requisitos, backlog e arquitetura ao portfólio atual         | M (4)   | Sem pré-requisito técnico anterior                                      |
-| [SlothEngineer#20](https://github.com/PHnsilva/SlothEngineer/issues/20) | Adequar e conferir os 23 especialistas e a fronteira externa de voz      | L (8)   | [SlothEngineer#24](https://github.com/PHnsilva/SlothEngineer/issues/24) |
-| [SlothEngineer#8](https://github.com/PHnsilva/SlothEngineer/issues/8)   | Publicar guias reutilizáveis com referências e limites factuais          | M (4)   | Sem pré-requisito técnico anterior                                      |
-| [SlothEngineer#12](https://github.com/PHnsilva/SlothEngineer/issues/12) | Concluir organização do quadro e cobertura do novo ciclo                 | P (2)   | [SlothEngineer#24](https://github.com/PHnsilva/SlothEngineer/issues/24) |
-| [SlothEngineer#10](https://github.com/PHnsilva/SlothEngineer/issues/10) | Definir casos e rubricas de avaliação por especialidade                  | L (8)   | [SlothEngineer#20](https://github.com/PHnsilva/SlothEngineer/issues/20) |
+| Issue                                                                   | Entrega                                                             | Tamanho | Bloqueada por                                                           |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------------- | ------- | ----------------------------------------------------------------------- |
+| [SlothEngineer#23](https://github.com/PHnsilva/SlothEngineer/issues/23) | Especificar templates, estimativas e autoridade de aceite           | P (2)   | Sem pré-requisito técnico anterior                                      |
+| [SlothEngineer#24](https://github.com/PHnsilva/SlothEngineer/issues/24) | Reconciliar requisitos, backlog e arquitetura ao portfólio atual    | M (4)   | Sem pré-requisito técnico anterior                                      |
+| [SlothEngineer#20](https://github.com/PHnsilva/SlothEngineer/issues/20) | Adequar e conferir os 23 especialistas e a fronteira externa de voz | L (8)   | [SlothEngineer#24](https://github.com/PHnsilva/SlothEngineer/issues/24) |
+| [SlothEngineer#8](https://github.com/PHnsilva/SlothEngineer/issues/8)   | Publicar guias reutilizáveis com referências e limites factuais     | M (4)   | Sem pré-requisito técnico anterior                                      |
+| [SlothEngineer#12](https://github.com/PHnsilva/SlothEngineer/issues/12) | Concluir organização do quadro e cobertura do novo ciclo            | P (2)   | [SlothEngineer#24](https://github.com/PHnsilva/SlothEngineer/issues/24) |
+| [SlothEngineer#10](https://github.com/PHnsilva/SlothEngineer/issues/10) | Definir casos e rubricas de avaliação por especialidade             | L (8)   | [SlothEngineer#20](https://github.com/PHnsilva/SlothEngineer/issues/20) |
 
 ## S2 — Inferência e ferramentas seguras
 
@@ -68,26 +69,27 @@ A soma abaixo inclui entregas ainda em revisão, para rastrear o escopo total; n
 
 ## S6 — Validação extra e mudanças
 
-| Issue                                                                   | Entrega                                                            | Tamanho | Bloqueada por                                                                                                                                                                                                             |
-| ----------------------------------------------------------------------- | ------------------------------------------------------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [SlothEngineer#40](https://github.com/PHnsilva/SlothEngineer/issues/40) | Executar regressão integrada dos 23 especialistas e ferramentas    | L (8)   | [SlothEngineer#5](https://github.com/PHnsilva/SlothEngineer/issues/5), [SlothEngineer#36](https://github.com/PHnsilva/SlothEngineer/issues/36), [SlothEngineer#39](https://github.com/PHnsilva/SlothEngineer/issues/39)   |
-| [SlothEngineer#41](https://github.com/PHnsilva/SlothEngineer/issues/41) | Validar isolamento, segredos e entradas adversariais ponta a ponta | L (8)   | [SlothEngineer#25](https://github.com/PHnsilva/SlothEngineer/issues/25), [SlothEngineer#9](https://github.com/PHnsilva/SlothEngineer/issues/9)                                                                            |
-| [SlothEngineer#42](https://github.com/PHnsilva/SlothEngineer/issues/42) | Comprovar recuperação, exclusão e rollback de conhecimento         | M (4)   | [SlothEngineer#34](https://github.com/PHnsilva/SlothEngineer/issues/34)                                                                                                                                                   |
-| [SlothEngineer#43](https://github.com/PHnsilva/SlothEngineer/issues/43) | Entregar operação e critérios para aceite do ciclo inicial         | M (4)   | [SlothEngineer#40](https://github.com/PHnsilva/SlothEngineer/issues/40), [SlothEngineer#41](https://github.com/PHnsilva/SlothEngineer/issues/41), [SlothEngineer#42](https://github.com/PHnsilva/SlothEngineer/issues/42) |
+| Issue                                                                   | Entrega                                                               | Tamanho | Bloqueada por                                                                                                                                                                                                             |
+| ----------------------------------------------------------------------- | --------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [SlothEngineer#40](https://github.com/PHnsilva/SlothEngineer/issues/40) | Executar regressão integrada dos 23 especialistas e ferramentas       | L (8)   | [SlothEngineer#5](https://github.com/PHnsilva/SlothEngineer/issues/5), [SlothEngineer#36](https://github.com/PHnsilva/SlothEngineer/issues/36), [SlothEngineer#39](https://github.com/PHnsilva/SlothEngineer/issues/39)   |
+| [SlothEngineer#41](https://github.com/PHnsilva/SlothEngineer/issues/41) | Validar isolamento, segredos e entradas adversariais ponta a ponta    | L (8)   | [SlothEngineer#25](https://github.com/PHnsilva/SlothEngineer/issues/25), [SlothEngineer#9](https://github.com/PHnsilva/SlothEngineer/issues/9)                                                                            |
+| [SlothEngineer#42](https://github.com/PHnsilva/SlothEngineer/issues/42) | Comprovar recuperação, exclusão e rollback de conhecimento            | M (4)   | [SlothEngineer#34](https://github.com/PHnsilva/SlothEngineer/issues/34)                                                                                                                                                   |
+| [SlothEngineer#43](https://github.com/PHnsilva/SlothEngineer/issues/43) | Entregar operação e critérios para aceite do ciclo inicial            | M (4)   | [SlothEngineer#40](https://github.com/PHnsilva/SlothEngineer/issues/40), [SlothEngineer#41](https://github.com/PHnsilva/SlothEngineer/issues/41), [SlothEngineer#42](https://github.com/PHnsilva/SlothEngineer/issues/42) |
+| [SlothEngineer#44](https://github.com/PHnsilva/SlothEngineer/issues/44) | Consolidar instruções do agente e documentação de contribuição        | M (4)   | Base de PR empilhada sobre #21 por sobreposição em `AGENTS.md`; essa ordem é de integração, não requisito funcional.                                                                                                      |
+| [SlothEngineer#45](https://github.com/PHnsilva/SlothEngineer/issues/45) | Formalizar requisitos, arquitetura, rastreabilidade e especializações | M (4)   | Sem dependência técnica.                                                                                                                                                                                                  |
+| [SlothEngineer#46](https://github.com/PHnsilva/SlothEngineer/issues/46) | Especificar avaliação e melhoria contínua                             | M (4)   | Alterações empilhadas nos arquivos já propostos no PR #13; integrar base antes do incremento.                                                                                                                             |
 
-## Registros fora do ciclo
+## Itens fora do ciclo inicial
 
-| Issue                                                                   | Disposição                                                                                                            |
+| Issue                                                                   | Delimitação                                                                                                           |
 | ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| [SlothEngineer#7](https://github.com/PHnsilva/SlothEngineer/issues/7)   | Futuro: delegação independente depende de necessidade/peer e não é requisito do ciclo DevOps.                         |
-| [SlothEngineer#15](https://github.com/PHnsilva/SlothEngineer/issues/15) | Reavaliar contrato histórico do Sofiee perante o novo agente Comunicação; preservar PR #18 e revisão de Pedro.        |
-| [SlothEngineer#16](https://github.com/PHnsilva/SlothEngineer/issues/16) | Reavaliar contrato histórico do Velumbra perante o novo portfólio; preservar PR #19 e revisão de Pedro.               |
-| [SlothEngineer#17](https://github.com/PHnsilva/SlothEngineer/issues/17) | Casos históricos do Sofiee podem informar a avaliação do Comunicação, sem implementar domínio do produto no Engineer. |
+| [SlothEngineer#7](https://github.com/PHnsilva/SlothEngineer/issues/7)   | Delegação independente só é considerada quando houver necessidade e peer definidos.                                   |
+| [SlothEngineer#15](https://github.com/PHnsilva/SlothEngineer/issues/15) | Reavaliar o contrato legado do Sofiee perante o agente Comunicação; não reativar automaticamente.                     |
+| [SlothEngineer#16](https://github.com/PHnsilva/SlothEngineer/issues/16) | Reavaliar o contrato legado do Velumbra perante o portfólio atual; não reativar automaticamente.                      |
+| [SlothEngineer#17](https://github.com/PHnsilva/SlothEngineer/issues/17) | Casos anteriores do Sofiee podem informar avaliação de Comunicação, sem implementar domínio do produto neste sistema. |
 
-## Continuidade e revisão
+## Interpretação do plano
 
-Antes de cada entrega, ler a issue, dependências, PRs/comentários e quadro vivo. PR aberto não equivale a aceite; pode fornecer pré-requisito técnico provisório conforme WEEKLY_EXECUTION.md. Preservar artefatos corretos e branches já em revisão. Somente Pedro revisa/aprova PRs, aceita e fecha as issues. Sprints e estimativas são planejamento, não declaração de conclusão.
+O plano organiza requisitos, escopo e dependências. O estado de implementação, validação, revisão e aceite é mantido nas issues, PRs e quadro. Artefato em PR pode atender provisoriamente a uma dependência somente quando contrato, SHA e validação forem suficientes e a ordem de integração estiver declarada; isso não representa aceite.
 
-Para agentes, depois do ciclo inicial continua o aperfeiçoamento por evidências: novas falhas/casos geram backlog real. Preparação/decisão de treino de pesos não é treino executado. Não prometer treinamento diário automático nem autopromover versão/lesson.
-
-Execução semanal: ler [WEEKLY_EXECUTION.md](WEEKLY_EXECUTION.md). Espera de revisão/merge não deve impedir PRs dependentes sobre artefatos já disponíveis e tecnicamente validados, com base/ordem explícitas.
+Para dependências entre branches, consulte [Dependências técnicas e integração incremental](WEEKLY_EXECUTION.md). Preparar casos, decidir sobre pesos ou alterar instruções não é treinamento de pesos executado.
