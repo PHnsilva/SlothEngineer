@@ -32,16 +32,16 @@ O objetivo de longo prazo é melhorar instruções, conhecimento e resultados co
 
 ## Capacidades do catálogo
 
-| Disponível                                               | Limite atual                                                      |
-| -------------------------------------------------------- | ----------------------------------------------------------------- |
-| 23 perfis com missão e critérios próprios                | São especializações configuráveis, sem modelos treinados por área |
-| Orquestrador com seleção explícita ou por palavras-chave | Produz planos; não executa a tarefa planejada                     |
-| Servidor MCP stdio com 7 ferramentas                     | Sem endpoint público, autenticação HTTP ou A2A                    |
-| Cliente MCP para peers locais autorizados                | Uso via CLI e configuração local revisada                         |
-| Modo `handoff`, sem inferência                           | O assistente externo executa a análise por conta própria          |
-| Adaptador Ollama opcional                                | Requer instalação e modelo local; não há modelo incluído          |
-| Busca lexical com fontes e status                        | Sem embeddings; memória de lições aprovadas começa vazia          |
-| Testes, avaliação de roteamento e CI                     | Não medem ainda qualidade de geração ou aprendizado               |
+| Disponível                                | Limite atual                                                                         |
+| ----------------------------------------- | ------------------------------------------------------------------------------------ |
+| 23 perfis com missão e critérios próprios | São especializações configuráveis, sem modelos treinados por área                    |
+| Plano e execução limitada pela CLI        | Consulta perfis em sequência ou usa ferramenta local fixa; não executa shell/escrita |
+| Servidor MCP stdio com 7 ferramentas      | Sem endpoint público, autenticação HTTP ou A2A                                       |
+| Cliente MCP para peers locais autorizados | Uso via CLI e configuração local revisada                                            |
+| Modo `handoff`, sem inferência            | O assistente externo executa a análise por conta própria                             |
+| Adaptador Ollama opcional                 | Requer instalação e modelo local; não há modelo incluído                             |
+| Busca lexical com fontes e status         | Sem embeddings; memória de lições aprovadas começa vazia                             |
+| Testes, avaliação de roteamento e CI      | Não medem ainda qualidade de geração ou aprendizado                                  |
 
 ## Começar sem serviço pago
 
@@ -53,8 +53,11 @@ cd sofiie-agents
 npm ci
 npm run check
 npm run plan -- "Melhorar a interface frontend e a acessibilidade do Sofiie"
+npm run run -- "Revisar o pipeline DevOps"
 npm run consult -- accessibility "Revisar navegação com teclado e foco do formulário"
 ```
+
+`run` retorna etapas e resultados observáveis. Sem Ollama local habilitado, consultas terminam em bloqueio/handoff; isso não é geração. A [coordenação interna](docs/INTERNAL_COORDINATION.md) documenta limites, retomada e evidências.
 
 O último comando retorna instruções e a tarefa para você fornecer ao assistente que já utiliza. `inferenceExecuted: false` significa que nenhum modelo respondeu. O programa não transforma esse handoff em uma resposta simulada.
 
@@ -93,7 +96,7 @@ Cada tarefa seleciona até três perfis de trabalho e até três funções de re
 ```text
 src/
   agents/         catálogo e instruções
-  orchestrator/   planejamento sem efeitos externos
+  orchestrator/   planejamento e coordenação limitada de capacidades locais
   providers/      handoff e Ollama local
   mcp/            servidor stdio e cliente de peers
   memory/         recuperação de conhecimento versionado

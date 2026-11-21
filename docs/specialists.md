@@ -104,7 +104,7 @@ Examina necessidade de coleta, finalidade, acesso, retenção, exclusão e divul
 
 ### Construção e entrega (`devops`)
 
-Cuida de versionamento, dependências, configuração, infraestrutura, pipelines, releases e rollback, dentro das permissões e do orçamento. Entrega procedimento verificável e limites de acesso/custo. A revisão inclui ambiente, falha e recuperação sem segredos. Pipeline verde e serviço provisionado não comprovam recebimento pelo consumidor nem aceite em produção.
+Cuida de versionamento, dependências, configuração, infraestrutura, pipelines, releases e rollback, dentro das permissões e do orçamento. Entrega procedimento verificável e limites de acesso/custo. Na coordenação local atual, pode ser selecionado para consulta sequencial e revisão sobre rascunhos não confiáveis; isso não o transforma em processo isolado nem executa mudanças de repositório. A revisão inclui ambiente, falha e recuperação sem segredos. Pipeline verde e serviço provisionado não comprovam recebimento pelo consumidor nem aceite em produção. Consulte [coordenação interna](INTERNAL_COORDINATION.md).
 
 ### Confiabilidade (`sre`)
 

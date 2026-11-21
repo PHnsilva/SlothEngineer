@@ -18,6 +18,7 @@
     "format:check": "prettier --check .",
     "agents": "tsx src/cli.ts agents",
     "plan": "tsx src/cli.ts plan",
+    "run": "tsx src/cli.ts run",
     "consult": "tsx src/cli.ts consult",
     "peer": "tsx src/cli.ts peer",
     "mcp": "node dist/mcp/stdio.js",
