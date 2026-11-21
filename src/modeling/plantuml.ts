@@ -25,9 +25,14 @@ export function validateDiagramSource(input: unknown): string {
   return source;
 }
 
-export async function renderDiagram(input: unknown, outputFormat: unknown): Promise<Buffer> {
+export async function renderDiagram(
+  input: unknown,
+  outputFormat: unknown,
+  signal?: AbortSignal,
+): Promise<Buffer> {
   const source = validateDiagramSource(input);
   const format = z.enum(['svg', 'png']).parse(outputFormat);
+  if (signal?.aborted) throw signal.reason ?? new Error('Renderização cancelada.');
   const jar = await readFile(rendererPath).catch(() => {
     throw new Error(
       'Prepare o renderizador com npm run diagrams:setup. Java também deve estar disponível.',
@@ -61,7 +66,10 @@ export async function renderDiagram(input: unknown, outputFormat: unknown): Prom
       failure ??= new Error(message);
       child.kill();
     };
+    const onAbort = () =>
+      stop(signal?.reason instanceof Error ? signal.reason.message : 'Renderização cancelada.');
     const timer = setTimeout(() => stop('Tempo limite de renderização excedido.'), 15000);
+    signal?.addEventListener('abort', onAbort, { once: true });
     child.stdout.on('data', (chunk: Buffer) => {
       size += chunk.length;
       if (size > 2000000) stop('Diagrama excede o limite de saída.');
@@ -73,10 +81,12 @@ export async function renderDiagram(input: unknown, outputFormat: unknown): Prom
     });
     child.on('error', () => {
       clearTimeout(timer);
+      signal?.removeEventListener('abort', onAbort);
       reject(new Error('Não foi possível executar Java localmente.'));
     });
     child.on('close', (code) => {
       clearTimeout(timer);
+      signal?.removeEventListener('abort', onAbort);
       if (failure) return reject(failure);
       if (code !== 0)
         return reject(new Error('PlantUML rejeitou o diagrama. Revise a sintaxe da fonte.'));

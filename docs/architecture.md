@@ -9,7 +9,10 @@ Usar um monólito modular em TypeScript sobre Node.js 24 LTS. O Sofiie existente
 ```mermaid
 flowchart TD
     Human[Pedro ou host MCP] --> Server[Servidor MCP stdio]
-    CLI[CLI local] --> Planner[Planejador determinístico]
+CLI[CLI local] --> Planner[Planejador determinístico]
+CLI --> Executor[Coordenador local limitado]
+Executor --> Provider[Consulta de especialista]
+Executor --> Diagram[PlantUML local fixo]
     Server --> Planner
     Server --> Profiles[23 perfis e critérios]
     Server --> Knowledge[Busca em conhecimento versionado]
@@ -44,6 +47,7 @@ Não há framework multiagente adicional. As responsabilidades atuais cabem em m
 ## Fronteiras e contratos
 
 - `planTask`: entrada validada → plano com `executed: false`. Os revisores são funções sugeridas, não agentes iniciados.
+- `runTask`: entrada validada → etapas sequenciais para consultas locais ou PlantUML fixo. Informa estado, limites, execução simulada/real, dependências ausentes e checkpoint em memória. Não chama shell, peers ou escrita; não cria processos de subagentes. Ver [contrato operacional](INTERNAL_COORDINATION.md).
 - `consultSpecialist`: entrada validada → `handoff` sem inferência ou `generated` com proposta local não confiável. Nunca afirma implementação.
 - `searchKnowledge`: texto de consulta → até cinco entradas com fontes. Não recebe caminho de arquivo e não grava conhecimento.
 - `callPeerTool`: configuração local validada e ferramenta permitida → resultado marcado `trusted: false`. Sem escolha de executável por entrada MCP.
@@ -55,7 +59,7 @@ O diretório `tools/` reúne catálogo, contratos e referência selecionada do p
 
 ## Restrições reais
 
-O planejador usa correspondência de palavras em português/inglês. Pode errar em tarefas ambíguas; a seleção explícita está disponível pela API MCP. Perfis não são processos isolados e não têm memória própria.
+O planejador usa correspondência de palavras em português/inglês. Pode errar em tarefas ambíguas; a seleção explícita está disponível pela CLI e API de planejamento MCP. Perfis não são processos isolados e não têm memória própria. `runTask` chama consultas sequencialmente, não transforma perfis em subagentes, e não persiste tarefas.
 
 O adaptador de IA não fornece ferramentas ao modelo. Instruções de prompt ajudam na análise, mas não constituem controle de segurança. As fronteiras efetivas desta versão são a ausência de execução de ações pelo modelo, schemas fechados, ausência de escrita de repositórios e configuração local de peers.
 

@@ -6,18 +6,18 @@ Definido a partir das decisões de Pedro até 06/11/2026. Documento de planejame
 
 ## Requisitos funcionais
 
-| ID  | Resultado exigido                                                                                                                                   |
-| --- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| F01 | Executar consultas locais e ferramentas de engenharia por CLI/MCP, distinguindo plano, handoff, inferência e execução efetiva.                      |
-| F02 | Manter 23 especialistas genéricos com missão, entradas, ferramentas, entregas, limites e critérios próprios, com DevOps prioritário.                |
-| F03 | Revisar arquitetura, alterações de código e PRs com evidências e achados verificáveis, sem aprovação ou merge de agente.                            |
-| F04 | Analisar e propor CI/CD, versionamento, configuração, dependências, infraestrutura e rollback dentro da autorização da issue.                       |
-| F05 | Executar verificações permitidas em workspace isolado, com limites e sem shell irrestrito exposto por MCP.                                          |
-| F06 | Planejar e validar containers, infraestrutura como código e releases em ambiente local/fixtures explícitas, sem contratação ou produção automática. |
-| F07 | Recuperar conhecimento com proveniência, separar referências/lições e registrar execuções com retenção e exclusão.                                  |
-| F08 | Medir baseline de geração e evolução por capacidade, com maior atenção aos casos DevOps e regressão dos demais especialistas.                       |
-| F09 | Consumir peer de leitura autorizado quando houver necessidade real e homologar um piloto de contribuição em consumidor.                             |
-| F10 | Preparar curadoria e protocolo de treinamento de pesos condicionado à viabilidade, sem confundir perfis com modelos treinados.                      |
+| ID  | Resultado exigido                                                                                                                                                               |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| F01 | Executar consultas locais e ferramentas de engenharia por CLI/MCP, distinguindo plano, handoff, inferência e execução efetiva; coordenação interna limitada é exposta pela CLI. |
+| F02 | Manter 23 especialistas genéricos com missão, entradas, ferramentas, entregas, limites e critérios próprios, com DevOps prioritário.                                            |
+| F03 | Revisar arquitetura, alterações de código e PRs com evidências e achados verificáveis, sem aprovação ou merge de agente.                                                        |
+| F04 | Analisar e propor CI/CD, versionamento, configuração, dependências, infraestrutura e rollback dentro da autorização da issue.                                                   |
+| F05 | Executar verificações permitidas em workspace isolado, com limites e sem shell irrestrito exposto por MCP.                                                                      |
+| F06 | Planejar e validar containers, infraestrutura como código e releases em ambiente local/fixtures explícitas, sem contratação ou produção automática.                             |
+| F07 | Recuperar conhecimento com proveniência, separar referências/lições e registrar execuções com retenção e exclusão.                                                              |
+| F08 | Medir baseline de geração e evolução por capacidade, com maior atenção aos casos DevOps e regressão dos demais especialistas.                                                   |
+| F09 | Consumir peer de leitura autorizado quando houver necessidade real e homologar um piloto de contribuição em consumidor.                                                         |
+| F10 | Preparar curadoria e protocolo de treinamento de pesos condicionado à viabilidade, sem confundir perfis com modelos treinados.                                                  |
 
 ## Requisitos não funcionais
 
