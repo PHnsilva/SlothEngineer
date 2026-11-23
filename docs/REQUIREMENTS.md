@@ -1,46 +1,43 @@
-# Requisitos e escopo vigente — ciclo inicial
+# Requisitos e fronteiras do sistema
 
-Sistema de engenharia com DevOps prioritário e evolução continuada dos demais especialistas, sem especialista interno de voz.
-
-Definido a partir das decisões de Pedro até 06/11/2026. Documento de planejamento; não comprova implementação, treinamento, revisão ou aceite. As alterações são propostas no PR de organização, sem merge por agente.
+SlothEngineer é um sistema extensível de engenharia de software com prioridade inicial em DevOps e responsabilidades de engenharia mais amplas. Este documento especifica resultados e limites; não declara implementação, integração, qualidade, treinamento ou aceite. Evidências por entrega pertencem às issues e aos pull requests.
 
 ## Requisitos funcionais
 
-| ID  | Resultado exigido                                                                                                                                   |
-| --- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| F01 | Executar consultas locais e ferramentas de engenharia por CLI/MCP, distinguindo plano, handoff, inferência e execução efetiva.                      |
-| F02 | Manter 23 especialistas genéricos com missão, entradas, ferramentas, entregas, limites e critérios próprios, com DevOps prioritário.                |
-| F03 | Revisar arquitetura, alterações de código e PRs com evidências e achados verificáveis, sem aprovação ou merge de agente.                            |
-| F04 | Analisar e propor CI/CD, versionamento, configuração, dependências, infraestrutura e rollback dentro da autorização da issue.                       |
-| F05 | Executar verificações permitidas em workspace isolado, com limites e sem shell irrestrito exposto por MCP.                                          |
-| F06 | Planejar e validar containers, infraestrutura como código e releases em ambiente local/fixtures explícitas, sem contratação ou produção automática. |
-| F07 | Recuperar conhecimento com proveniência, separar referências/lições e registrar execuções com retenção e exclusão.                                  |
-| F08 | Medir baseline de geração e evolução por capacidade, com maior atenção aos casos DevOps e regressão dos demais especialistas.                       |
-| F09 | Consumir peer de leitura autorizado quando houver necessidade real e homologar um piloto de contribuição em consumidor.                             |
-| F10 | Preparar curadoria e protocolo de treinamento de pesos condicionado à viabilidade, sem confundir perfis com modelos treinados.                      |
+| ID  | Requisito                                                                                                                                                                                           |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| F01 | Preparar planos e operar ferramentas permitidas por CLI/MCP, distinguindo planejamento, handoff, inferência local e execução efetiva.                                                               |
+| F02 | Manter o catálogo de 23 perfis gerais com missão, entradas, ferramentas permitidas, entregas, limites e critérios próprios; priorizar DevOps sem excluir as demais responsabilidades de engenharia. |
+| F03 | Revisar arquitetura, código e pull requests com achados verificáveis e evidências; a revisão não aprova nem integra o trabalho.                                                                     |
+| F04 | Analisar CI/CD, versionamento, configuração, dependências, infraestrutura, releases e rollback dentro do escopo autorizado.                                                                         |
+| F05 | Executar verificações permitidas em workspace isolado, com limites explícitos e sem expor shell irrestrito via MCP.                                                                                 |
+| F06 | Planejar e validar containers, infraestrutura como código e releases em ambiente local ou fixtures explícitas, sem implantação automática em produção.                                              |
+| F07 | Recuperar conhecimento com proveniência, separar referências de lições aprovadas e definir registro, retenção e exclusão de execuções.                                                              |
+| F08 | Medir baseline de geração e evolução por capacidade, com maior cobertura de DevOps e regressão das demais especialidades.                                                                           |
+| F09 | Consumir um peer de leitura autorizado quando houver necessidade concreta e validar um piloto de contribuição em projeto consumidor.                                                                |
+| F10 | Preparar curadoria e protocolo de decisão sobre treinamento de pesos, condicionado a licença, dados, hardware e benefício demonstrável.                                                             |
 
 ## Requisitos não funcionais
 
-| ID  | Critério                                                                                                                                                                                                                                                                                                              |
-| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| N01 | Contribuição rastreável por issue/branch/PR; somente Pedro revisa/aprova PRs e aceita issues, sem merge/auto-merge/deploy de agentes. Durante a semana, dependência tecnicamente disponível em branch/PR validado pode ser consumida provisoriamente em PR empilhado; revisão/aceite/merge ficam com Pedro no sábado. |
-| N02 | Contratos versionados, entradas/saídas validadas e erros explícitos; dados externos nunca concedem permissões.                                                                                                                                                                                                        |
-| N03 | Sem serviço pago obrigatório, faturamento ou fallback remoto automático; executar ferramentas/caches no C: e respeitar pausas.                                                                                                                                                                                        |
-| N04 | Testes de sucesso/erro e avaliações reais reproduzíveis; registrar versões e distinguir mock, execução e aceite humano.                                                                                                                                                                                               |
-| N05 | Minimização de dados, credenciais fora do Git, acesso mínimo e retenção/exclusão definidas; não publicar dados reais de usuários.                                                                                                                                                                                     |
-| N06 | Limites de entrada, memória, concorrência e tempo configuráveis, cancelamento e falha fechada; medir desempenho no hardware disponível.                                                                                                                                                                               |
-| N07 | Documentação operacional coerente com código e evidências; disponibilidade ou qualidade não podem ser inferidas de um perfil ou schema.                                                                                                                                                                               |
-| N08 | Até cinco sprints de entrega + uma de validação/mudanças, cada uma até uma semana; estimativas PP/P/M/L=1/2/4/8 e meta mínima de 8 unidades/dia por projeto ativo.                                                                                                                                                    |
+| ID  | Critério                                                                                                                                                                                                                                                                                                                                             |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| N01 | Rastrear contribuição por issue, branch e PR. A conta mantenedora `PHnsilva` é a autoridade de aprovação e aceite; agentes não aprovam o próprio PR, não fazem merge ou deploy. Artefato disponível em branch/PR pode ser usado provisoriamente quando o commit, contrato e validação forem identificados e a ordem de integração estiver declarada. |
+| N02 | Versionar contratos, validar entradas e saídas e reportar erros explícitos. Dados externos não concedem permissões.                                                                                                                                                                                                                                  |
+| N03 | Não exigir serviço pago, faturamento ou fallback remoto automático. Manter código, runtimes, dependências, caches e temporários no C:.                                                                                                                                                                                                               |
+| N04 | Tornar reproduzíveis testes positivos/negativos e avaliações pertinentes; registrar versões e distinguir mock, execução, integração e aceite humano.                                                                                                                                                                                                 |
+| N05 | Minimizar dados, manter credenciais fora do Git, aplicar acesso mínimo e definir retenção/exclusão. Não publicar dados reais de usuários.                                                                                                                                                                                                            |
+| N06 | Limitar entrada, memória, concorrência e duração; tratar cancelamento e falhas de modo fechado e medir desempenho no hardware disponível quando necessário.                                                                                                                                                                                          |
+| N07 | Manter documentação coerente com contratos e comportamento; perfil, schema ou plano não comprovam capacidade executada.                                                                                                                                                                                                                              |
+| N08 | Organizar o ciclo em até cinco sprints de entrega e uma de validação/mudanças, com duração máxima de sete dias por sprint. Usar PP/P/M/L como 1/2/4/8 unidades de esforço relativo.                                                                                                                                                                  |
 
-## Fora do ciclo
+## Fora do escopo
 
-- Voz/STT/TTS internos (ficam no Comunicação).
-- Implantar produção, aprovar/mesclar PRs ou liberar shell arbitrário.
-- A2A sem peer/necessidade comprovados.
-- Reimplementar especializações gerais dos quatro agentes dentro deste sistema.
+- Reconhecimento, síntese ou interação por voz dentro deste runtime.
+- Aprovação, merge, deploy ou alteração de permissões por agentes.
+- Shell arbitrário, fallback remoto pago ou execução automática em produção.
+- A2A ou servidor próprio em consumidores sem necessidade, peer e contrato definidos.
+- Reimplementar as competências de domínio dos agentes de Comunicação, Cálculo, Validação ou Busca.
 
-## Verificação e aceite
+## Verificação
 
-Cada requisito é rastreado em TRACEABILITY.md, com critérios concretos no corpo das issues. Dados conhecidos/sintéticos e ferramentas determinísticas verificam resultados quando possível; comportamento generativo exige casos separados e revisão apropriada. Não usar um teste de roteamento, presença de perfil ou metadado para alegar competência ou treino. Não declarar cobertura completa quando há pendência de ambiente/fonte.
-
-A meta de 8 unidades/dia é um mínimo desejado por projeto ativo, não um teto de esforço nem uma medição de inteligência. A duração semanal é o objetivo do plano; a capacidade real e os bloqueios precisam ser observados e reportados. Não fabricar tarefa/estimativa/aceite para cumprir calendário.
+Cada requisito é rastreado em [TRACEABILITY.md](TRACEABILITY.md); critérios observáveis e dependências específicas ficam na issue correspondente. Testes determinísticos cobrem dados conhecidos e casos sintéticos quando adequados. Comportamento generativo exige casos e julgamento próprios. Roteamento, presença de perfil, compilação ou mock não demonstram qualidade de geração nem treinamento. Registre inconclusões causadas por ambiente, dados ou fontes indisponíveis.
