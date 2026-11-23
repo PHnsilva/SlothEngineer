@@ -28,6 +28,7 @@ export async function consultSpecialist(
   objective: string,
   env: NodeJS.ProcessEnv = process.env,
   request: Fetch = fetch,
+  signal?: AbortSignal,
 ) {
   getSpecialist(id);
   const task = z.string().trim().min(5).max(4000).parse(objective);
@@ -50,7 +51,9 @@ export async function consultSpecialist(
     throw new Error('Já existe uma inferência local em andamento. Aguarde a conclusão.');
   inferenceInProgress = true;
   try {
-    const options = { signal: AbortSignal.timeout(60000), redirect: 'error' as const };
+    const signalForRequest = () =>
+      signal ? AbortSignal.any([AbortSignal.timeout(60000), signal]) : AbortSignal.timeout(60000);
+    const options = { signal: signalForRequest(), redirect: 'error' as const };
     const tags = await request(`${LOCAL_OLLAMA}/api/tags`, options);
     if (!tags.ok) throw new Error(`Ollama indisponível: HTTP ${tags.status}.`);
     const installed = tagsSchema.parse(await tags.json());
@@ -60,7 +63,7 @@ export async function consultSpecialist(
       );
     const response = await request(`${LOCAL_OLLAMA}/api/chat`, {
       ...options,
-      signal: AbortSignal.timeout(60000),
+      signal: signalForRequest(),
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

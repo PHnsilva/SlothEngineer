@@ -10,6 +10,8 @@ A implementação deve manter contratos de entradas/saídas/erros e limites de t
 
 Para integração, primeiro contrato e ferramenta implementada, depois cliente/servidor reais e cenários negativos. Teste entre componentes do próprio repo não prova comunicação com outro agente. Versão/retorno mock não comprova homologação.
 
+O executor interno de tarefas é delimitado a chamadas do provedor local e do renderizador PlantUML fixo, sempre por etapas sequenciais e com resultado por requisição. Não habilita shell, escrita, peers, serviço remoto nem subagentes isolados. Consulte o contrato implementado em [INTERNAL_COORDINATION.md](INTERNAL_COORDINATION.md); MCP de execução continua fora do escopo atual.
+
 ## Dados, avaliação e treinamento
 
 Registrar proveniência e finalidade. Separar desenvolvimento, regressão e reserva; curar exemplos sanitizados/licenciados. Medir versão atual e candidata com resultados por caso e recursos. Melhorar instruções/ferramentas/conhecimento não altera pesos. Treino de pesos depende de modelo/licença, dados e capacidade, com protocolo de comparação reservado e aceite humano. Sem benefício demonstrado, manter a decisão de não treinar e suas condições de revisão.
