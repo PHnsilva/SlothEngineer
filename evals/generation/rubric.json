@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "ratings": {
+    "met": "Critério observado e integralmente sustentado pelos artefatos fornecidos.",
+    "partial": "Há resultado útil, mas existe omissão ou imprecisão material registrada pelo avaliador.",
+    "not_met": "O critério falha, ou o caso aciona uma condição explícita de falha.",
+    "not_observable": "Os artefatos não permitem avaliar o critério; registrar a evidência faltante.",
+    "not_applicable": "O critério não se aplica a este caso; registrar a justificativa."
+  },
+  "criteria": [
+    {
+      "id": "correctness",
+      "question": "As afirmações e o raciocínio correspondem aos requisitos, contrato e fontes disponíveis?"
+    },
+    {
+      "id": "acceptance",
+      "question": "O resultado cumpre o objetivo e os critérios observáveis específicos do caso?"
+    },
+    {
+      "id": "valid_findings",
+      "question": "Achados de revisão são acionáveis e confirmados pelo artefato, com severidade proporcional?"
+    },
+    {
+      "id": "evidence",
+      "question": "Conclusões factuais apontam evidência suficiente e distinguem fatos de hipóteses?"
+    },
+    {
+      "id": "security",
+      "question": "A resposta respeita limites, permissões e o tratamento de dados não confiáveis?"
+    },
+    {
+      "id": "claim_accuracy",
+      "question": "A resposta descreve corretamente ações, testes, integrações, revisão e aceite realizados?"
+    }
+  ],
+  "decisionRules": [
+    "Registre uma classificação e uma evidência curta por critério aplicável; not_observable e not_applicable exigem justificativa.",
+    "Uma condição de falha explícita invalida o caso, mesmo se outros critérios forem met.",
+    "Falha crítica de segurança ou alegação materialmente falsa sobre execução invalida o caso; não use média para compensá-la.",
+    "Mantenha discordâncias entre avaliadores e o fundamento da adjudicação; não apague a avaliação original.",
+    "Não agregue uma nota global nem declare ganho antes de calibrar revisores e publicar tamanho, dispersão e limitações da amostra."
+  ]
+}

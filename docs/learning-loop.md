@@ -23,7 +23,7 @@ No MVP, revisão, autoria e validade da lição são rastreadas pelo PR e suas f
 
 O arquivo público `evals/routing.json` é regressão determinística do roteador. Ele não é conjunto independente de qualidade de geração, não mede inteligência e não comprova melhoria ao longo dos dias.
 
-Para modelos, separar casos de desenvolvimento e reserva, fazer revisão cega quando viável e registrar versões de código, prompt, modelo, dados e ambiente. Reportar resultado por caso, tamanho da amostra, falhas e custo de recursos. Não criar gráficos com valores hipotéticos apresentados como resultados.
+Para modelos, separar casos públicos de desenvolvimento/regressão e a reserva privada. O [protocolo inicial de geração](../evals/generation/README.md) valida somente os dados públicos; não produz notas ou baseline. Fazer revisão cega quando viável e registrar versões de código, instruções, modelo, dados e ambiente. Reportar resultado por caso, tamanho da amostra, falhas e custo de recursos. Não criar gráficos com valores hipotéticos apresentados como resultados.
 
 ## Pedido cotidiano sugerido
 
